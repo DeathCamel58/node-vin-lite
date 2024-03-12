@@ -1,0 +1,16 @@
+{
+  "entryPoints": [
+    "./src"
+  ],
+  "out": "docs",
+  "validation": {
+    "notExported": true,
+    "invalidLink": true,
+    "notDocumented": true
+  },
+  "navigationLinks": {
+    "Repository": "https://github.com/DeathCamel58/node-vin-lite",
+    "RandomCPU": "https://randomcpu.com"
+  },
+  "entryPointStrategy": "expand"
+}

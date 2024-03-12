@@ -30,11 +30,9 @@ To retrieve additional information transmitted by the second argument when you c
 ```JavaScript
 var vin = require('vin-lite');
 
-console.log(vin.isValid("WVWZZZ3CZEE140287")); // true
+console.log(vin.isValid("1VWAH7A34DC031915")); // true
 
-console.log(vin.isValid("WVWZZZ3CZEE140287",false)); // Verify regular expression only
-
-console.log(vin.decode("WVWZZZ3CZEE140287",true)); 
+console.log(vin.decode("1VWAH7A34DC031915", true)); 
 /* { wmi: 'WVW',
      vds: 'ZZZ3CZ',
      vis: 'EE140287',
