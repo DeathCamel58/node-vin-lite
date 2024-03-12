@@ -3739,14 +3739,14 @@ interface FordSpecific {
  */
 function decodeVin (vin: string): FordSpecific | null {
   // const restraintDigit = vin[3];
-  const lineSeriesBodyDigit = vin.slice(4, 7)
+  const modelCode = vin.slice(4, 7)
   // const engineDigit = vin[7];
   const modelYear: number = modelYears(vin)
   const assemblyPlantDigit = vin[10]
 
   let model = 'Unknown'
-  if (models[lineSeriesBodyDigit] !== undefined) {
-    const modelMatches = models[lineSeriesBodyDigit]
+  if (models[modelCode] !== undefined) {
+    const modelMatches = models[modelCode]
 
     for (const item of modelMatches) {
       if (item.startYear <= modelYear && modelYear <= item.endYear) {

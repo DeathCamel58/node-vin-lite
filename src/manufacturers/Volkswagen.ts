@@ -152,9 +152,9 @@ function decodeVin (vin: string): VolkswagenSpecific | null {
   const modelCode = vin.slice(6, 8)
   const placeCode = vin[10]
   const modelYear: number = modelYears(vin)
-  let model = 'Unknown'
   let assemblyPlant = factory[placeCode]
 
+  let model = 'Unknown'
   if (models[modelCode] !== undefined) {
     const modelMatches = models[modelCode]
 
