@@ -1,6 +1,8 @@
 type WmiDictionary = Record<string, string>
 
 const wmiDictionary: WmiDictionary = {
+  VF9: 'Bugatti France',
+  ZA9: 'Bugatti Italy',
   MHA: 'PT. Central Sole Agency (Volvo)',
   '93V': 'Audi Brazil',
   '1V1': 'Volkswagen USA (commercials)',
