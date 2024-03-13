@@ -923,6 +923,14 @@ const wmiDictionary: WmiDictionary = {
   '1FU': 'Freightliner',
   '2FU': 'Freightliner',
 
+  // Tesla
+  '5YJ': 'Tesla Inc.',
+  '7G2': 'Tesla, Inc., Truck',
+  '7SA': 'Tesla, MPV, for Model X/Y',
+  LRW: 'Tesla, China',
+  SFZ: 'Tesla Motors (Roadsters fully assembed in UK)',
+  XP7: 'Tesla, Berlin',
+
   // Others
   MHA: 'PT. Central Sole Agency (Volvo)',
   935: 'Citroën Brazil',
