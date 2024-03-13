@@ -1,11 +1,13 @@
-import vinLite from '../index'
+import VinLite from '../index'
 
 describe('Toyota', () => {
+  const vinDecoder = new VinLite()
+
   describe('2021 Toyota RAV4 XLE (2T3P1RFV8MW222306)', () => {
     const vin = '2T3P1RFV8MW222306'
 
     test('Decode VIN Data', () => {
-      const result = vinLite.decode(vin)
+      const result = vinDecoder.decode(vin)
 
       const expected = {
         wmi: '2T3',
@@ -42,7 +44,7 @@ describe('Toyota', () => {
     const vin = '3TMAZ5CN8LM114957'
 
     test('Decode VIN Data', () => {
-      const result = vinLite.decode(vin)
+      const result = vinDecoder.decode(vin)
 
       const expected = {
         wmi: '3TM',
@@ -78,7 +80,7 @@ describe('Toyota', () => {
     const vin = '4T1G11AK9PU822683'
 
     test('Decode VIN Data', () => {
-      const result = vinLite.decode(vin)
+      const result = vinDecoder.decode(vin)
 
       const expected = {
         wmi: '4T1',

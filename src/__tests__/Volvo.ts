@@ -1,11 +1,13 @@
-import vinLite from '../index'
+import VinLite from '../index'
 
 describe('Volvo', () => {
+  const vinDecoder = new VinLite()
+
   describe('2011 Volvo S40 T5 (YV1672MS6B2530438)', () => {
     const vin = 'YV1672MS6B2530438'
 
     test('Decode VIN Data', () => {
-      const result = vinLite.decode(vin)
+      const result = vinDecoder.decode(vin)
 
       const expected = {
         wmi: 'YV1',

@@ -1,11 +1,13 @@
-import vinLite from '../index'
+import VinLite from '../index'
 
 describe('Tesla', () => {
+  const vinDecoder = new VinLite()
+
   describe('2017 Tesla Model S 75 (5YJSA1E14HF184689)', () => {
     const vin = '5YJSA1E14HF184689'
 
     test('Decode VIN Data', () => {
-      const result = vinLite.decode(vin)
+      const result = vinDecoder.decode(vin)
 
       const expected = {
         wmi: '5YJ',
@@ -37,7 +39,7 @@ describe('Tesla', () => {
     const vin = '5YJXCDE24KF202884'
 
     test('Decode VIN Data', () => {
-      const result = vinLite.decode(vin)
+      const result = vinDecoder.decode(vin)
 
       const expected = {
         wmi: '5YJ',
@@ -69,7 +71,7 @@ describe('Tesla', () => {
     const vin = '5YJYGDEE9LF028427'
 
     test('Decode VIN Data', () => {
-      const result = vinLite.decode(vin)
+      const result = vinDecoder.decode(vin)
 
       const expected = {
         wmi: '5YJ',
@@ -101,7 +103,7 @@ describe('Tesla', () => {
     const vin = '5YJRE1A19A1000522'
 
     test('Decode VIN Data', () => {
-      const result = vinLite.decode(vin)
+      const result = vinDecoder.decode(vin)
 
       const expected = {
         wmi: '5YJ',
@@ -133,7 +135,7 @@ describe('Tesla', () => {
     const vin = '7G2TBEEB2PN000529'
 
     test('Decode VIN Data', () => {
-      const result = vinLite.decode(vin)
+      const result = vinDecoder.decode(vin)
 
       const expected = {
         wmi: '7G2',

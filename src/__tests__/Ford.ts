@@ -1,11 +1,13 @@
-import vinLite from '../index'
+import VinLite from '../index'
 
 describe('Ford', () => {
+  const vinDecoder = new VinLite()
+
   describe('2017 Ford Escape (1FMCU0GD3HUD06748)', () => {
     const vin = '1FMCU0GD3HUD06748'
 
     test('Decode VIN Data', () => {
-      const result = vinLite.decode(vin)
+      const result = vinDecoder.decode(vin)
 
       const expected = {
         wmi: '1FM',
@@ -33,7 +35,7 @@ describe('Ford', () => {
     const vin = '1FT8W3A64MEE16356'
 
     test('Decode VIN Data', () => {
-      const result = vinLite.decode(vin)
+      const result = vinDecoder.decode(vin)
 
       const expected = {
         wmi: '1FT',
@@ -61,7 +63,7 @@ describe('Ford', () => {
     const vin = '2FMDK3KC3ABA05869'
 
     test('Decode VIN Data', () => {
-      const result = vinLite.decode(vin)
+      const result = vinDecoder.decode(vin)
 
       const expected = {
         wmi: '2FM',

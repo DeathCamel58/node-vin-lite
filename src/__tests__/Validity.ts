@@ -1,6 +1,8 @@
-import vinLite from '../index'
+import VinLite from '../index'
 
 describe('Validity Checks', () => {
+  const vinDecoder = new VinLite()
+
   describe('Valid', () => {
     const validVins = [
       '1FMCU0GD3HUD06748',
@@ -27,7 +29,7 @@ describe('Validity Checks', () => {
     // Test each valid VIN
     for (const vin of validVins) {
       test(vin, () => {
-        const result = vinLite.isValid(vin)
+        const result = vinDecoder.isValid(vin)
 
         expect(result).toBeTruthy()
       })
@@ -46,7 +48,7 @@ describe('Validity Checks', () => {
     // Test each invalid VIN
     for (const vin of invalidVins) {
       test(vin, () => {
-        const result = vinLite.isValid(vin)
+        const result = vinDecoder.isValid(vin)
 
         expect(result).toBeFalsy()
       })

@@ -1,11 +1,13 @@
-import vinLite from '../index'
+import VinLite from '../index'
 
 describe('Volkswagen', () => {
+  const vinDecoder = new VinLite()
+
   describe('2019 Volkswagen Atlas SE w/Technology (1V2WR2CA5KC539715)', () => {
     const vin = '1V2WR2CA5KC539715'
 
     test('Decode VIN Data', () => {
-      const result = vinLite.decode(vin)
+      const result = vinDecoder.decode(vin)
 
       const expected = {
         wmi: '1V2',
@@ -35,7 +37,7 @@ describe('Volkswagen', () => {
     const vin = '1VWAH7A34DC031915'
 
     test('Decode VIN Data', () => {
-      const result = vinLite.decode(vin)
+      const result = vinDecoder.decode(vin)
 
       const expected = {
         wmi: '1VW',
@@ -65,7 +67,7 @@ describe('Volkswagen', () => {
     const vin = '3VVNB7AX4PM041275'
 
     test('Decode VIN Data', () => {
-      const result = vinLite.decode(vin)
+      const result = vinDecoder.decode(vin)
 
       const expected = {
         wmi: '3VV',
@@ -95,7 +97,7 @@ describe('Volkswagen', () => {
     const vin = '3VWEB7BU2LM046002'
 
     test('Decode VIN Data', () => {
-      const result = vinLite.decode(vin)
+      const result = vinDecoder.decode(vin)
 
       const expected = {
         wmi: '3VW',

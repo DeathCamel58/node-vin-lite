@@ -585,7 +585,7 @@ function decodeVin (vin: string): VolkswagenSpecific | null {
   let series = 'Unknown'
   let transmission = 'Unknown'
   for (const match of matchModels) {
-    if (seriesData[modelYear] !== undefined && seriesData[modelYear][match] !== undefined) {
+    if (seriesData[modelYear]?.[match] !== undefined) {
       const thisSeries = seriesData[modelYear][match]
 
       if (thisSeries[vin[3]] !== undefined) {

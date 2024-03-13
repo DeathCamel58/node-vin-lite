@@ -1,11 +1,13 @@
-import vinLite from '../index'
+import VinLite from '../index'
 
 describe('Bugatti', () => {
+  const vinDecoder = new VinLite()
+
   describe('2023 Bugatti Chiron Super Sport (VF9SW3V38PM795065)', () => {
     const vin = 'VF9SW3V38PM795065'
 
     test('Decode VIN Data', () => {
-      const result = vinLite.decode(vin)
+      const result = vinDecoder.decode(vin)
 
       const expected = {
         wmi: 'VF9',
@@ -33,7 +35,7 @@ describe('Bugatti', () => {
     const vin = 'VF9SA15CX8M795234'
 
     test('Decode VIN Data', () => {
-      const result = vinLite.decode(vin)
+      const result = vinDecoder.decode(vin)
 
       const expected = {
         wmi: 'VF9',
@@ -61,7 +63,7 @@ describe('Bugatti', () => {
     const vin = 'VF9SD3V35LM795007'
 
     test('Decode VIN Data', () => {
-      const result = vinLite.decode(vin)
+      const result = vinDecoder.decode(vin)
 
       const expected = {
         wmi: 'VF9',

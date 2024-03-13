@@ -46,7 +46,7 @@ export default class VinDecoder {
     * @param vin {string} The VIN to check
     * @returns {boolean} Was the VIN valid
     */
-  static isValid (vin: string): boolean {
+  isValid (vin: string): boolean {
     // Define multiplier for each position in the VIN
     const multiplier = [8, 7, 6, 5, 4, 3, 2, 10, 0, 9, 8, 7, 6, 5, 4, 3, 2]
 
@@ -105,7 +105,7 @@ export default class VinDecoder {
     * @param vin {string} The VIN to decode
     * @returns {object} The VIN's decoded information
     */
-  static decode (vin: string): VinData | VinError {
+  decode (vin: string): VinData | VinError {
     vin = vin.toUpperCase()
 
     if (this.isValid(vin)) {
@@ -143,7 +143,7 @@ export default class VinDecoder {
     }
   }
 
-  static USAValidate (vin: string): boolean {
+  USAValidate (vin: string): boolean {
     vin = vin.toUpperCase()
     return USACDNCheck.validate(vin)
   }
