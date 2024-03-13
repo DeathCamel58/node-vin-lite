@@ -201,6 +201,7 @@ const wmiDictionary: WmiDictionary = {
   WV2: 'Volkswagen Bus/Van',
   AAV: 'Volkswagen South Africa',
   '1VW': 'Volkswagen USA',
+  '1V2': 'Volkswagen USA',
   WV1: 'Volkswagen Commercial Vehicles',
   '2V4': 'Volkswagen Canada',
   '8AW': 'Volkswagen Argentina',
