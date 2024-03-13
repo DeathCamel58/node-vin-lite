@@ -26,12 +26,17 @@ describe('Toyota', () => {
         manufacturer: 'TMMC, Toyota Multipurpose Passenger Vehicle (SUV)',
         modelYear: 2021,
         manufacturerInfo: {
-          model: 'RAV4',
+          model: 'RAV4, RAV4 Hybrid',
           assemblyPlant: 'Woodstock, ON, Canada (TMMC); Graz, Austria (Magna Steyr)',
           manufacturer: 'NUMMI (Toyota truck); Toyota',
           vehicleType: 'Multipurpose Passenger Vehicle (SUV)',
-          engine: 'Unknown',
-          body: 'Standard Cab 1/2 Ton Truck, 4WD, Short Bed, Full-Size Frame'
+          engine: 'A25A-FKS - Gasoline, Port + Direct, L4, 2L',
+          restraint: 'Seat Belt: All seats\n' +
+            'Frontal Airbag: Driver & Passenger Seats\n' +
+            'Curtain Shield Airbag: All Rows\n' +
+            'Side Airbag: 1st Row\n' +
+            'Knee Airbag: Driver Seat Only\n' +
+            'Cushion Airbag: Passenger Seat Only'
         }
       }
 
@@ -64,12 +69,16 @@ describe('Toyota', () => {
         manufacturer: 'TMMBC, Toyota Truck',
         modelYear: 2020,
         manufacturerInfo: {
-          model: 'Tacoma/Older Trucks',
+          model: 'Tacoma; Older Trucks',
           assemblyPlant: 'Tijuana, Baja CA, Mexico (TMMBC)',
           manufacturer: 'NUMMI (Toyota truck); Toyota',
           vehicleType: 'Multipurpose Passenger Vehicle (SUV)',
-          engine: '3.5L 2GR-FKS V6 (278 hp), 2JZ-FE, 1ZZ-FE, 3ZZ-FE',
-          body: '2DR Sedan 2WD'
+          engine: '2GR-FKS - Gasoline, Port + Direct, V6, 3.5L; 2JZ-FE; 1ZZ-FE; 3ZZ-FE',
+          restraint: 'Seat Belt: All seats\n' +
+            'Frontal Airbag: Driver & Passenger Seats\n' +
+            'Curtain Shield Airbag: All Rows\n' +
+            'Side Airbag: 1st Row\n' +
+            'Knee Airbag: Driver & Passenger Seats'
         }
       }
 
@@ -102,12 +111,16 @@ describe('Toyota', () => {
         manufacturer: 'TMMK, Toyota Passenger Car',
         modelYear: 2023,
         manufacturerInfo: {
-          model: 'Camry/Aurion(TRD)',
+          model: 'Camry, Camry Hybrid; Aurion(TRD)',
           assemblyPlant: 'Georgetown, KY, US (TMMK)',
           manufacturer: 'NUMMI (Toyota truck); Toyota',
           vehicleType: 'Passenger Car',
-          engine: 'Unknown',
-          body: '4DR Wagon 2WD'
+          engine: 'A25A-FKS - Gasoline, Port + Direct, L4, 2L',
+          restraint: 'Seat Belt: All seats\n' +
+            'Frontal Airbag: Driver & Passenger Seats\n' +
+            'Curtain Shield Airbag: All Rows\n' +
+            'Side Airbag: All Rows\n' +
+            'Knee Airbag: Driver & Passenger Seats'
         }
       }
 

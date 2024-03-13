@@ -39,6 +39,8 @@ const vehicleTypes = {
   5: 'Incomplete Vehicle (typically a convertible)'
 }
 
+
+// TODO: Figure out these. It looks like every model has a different array of these?
 const bodies = {
   A: '2DR Sedan 2WD',
   B: '4DR Sedan 2WD/Standard Cab Truck, 4WD, Standard Bed, Full-Size Frame',
@@ -66,84 +68,257 @@ const bodies = {
 
 // Before 1996 for North America
 const engineBefore1996 = {
-  4: '7A-FE Lean Burn',
-  A: '3MZ-FE',
-  B: '1NZ-FXE or 2AZ-FXE',
-  C: '5E-FE',
-  D: '2JZ-GE',
-  E: '2AZ-FE',
-  F: '1MZ-FE',
-  G: '5S-FE',
-  H: '1UZ-FE',
-  K: '2GR-FE',
-  L: '2RZ-FE',
-  M: '3RZ-FE',
-  N: '5S-FNE or 5VZ-FE',
-  P: '3S-FE',
-  R: '1ZZ-FE',
-  S: '1BM',
-  T: '2UZ-FE or 1NZ-FE or 3S-GTE',
-  U: '1GR-FE',
-  Y: '2ZZ-GE'
+  4: ['7A-FE Lean Burn'],
+  A: ['3MZ-FE'],
+  B: [
+    '1NZ-FXE',
+    '2AZ-FXE'
+  ],
+  C: ['5E-FE'],
+  D: ['2JZ-GE'],
+  E: ['2AZ-FE'],
+  F: ['1MZ-FE'],
+  G: ['5S-FE'],
+  H: ['1UZ-FE'],
+  K: ['2GR-FE'],
+  L: ['2RZ-FE'],
+  M: ['3RZ-FE'],
+  N: [
+    '5S-FNE',
+    '5VZ-FE'
+  ],
+  P: ['3S-FE'],
+  R: ['1ZZ-FE'],
+  S: ['1BM'],
+  T: [
+    '2UZ-FE',
+    '1NZ-FE',
+    '3S-GTE'
+  ],
+  U: ['1GR-FE'],
+  Y: ['2ZZ-GE']
 }
 
 // 1996-Present in North America; 2002-Present for the rest of the world
 const engineAfter1996 = {
-  A: '4A-FE, 2AD-FTV (2005+)',
-  B: '7A-FE, 1HZ,1HD,2AD-FHV (2005+)',
-  C: '2C, 2CT, 2CT-E',
-  E: '2JZ-GT, 2JZ-GTE, 2AZ-FE',
-  F: '1MZ-FE, 2AR-FE',
-  H: '1AZ-FE, 1NR-FE',
-  J: '1FZ-FE, 1AZ-FSE',
-  L: '2SZ-FE',
-  N: '5VZ-FE, 2ZR-FXE',
-  P: '2AZ-FSE',
-  R: '1ZZ-FE',
-  S: '3S-FE,2ZR-FXE, or Electric -- RAV4 EV only',
-  T: '2UZ-FE',
-  U: '2ZR-FE (Corolla Conquest 2010)',
-  V: '1NR-FE or 1VD-FTV',
-  W: '2NZ-FE, 1CD-FTV',
-  X: '2TR-FE',
-  Y: '2ZZ-GE, 3UR-FE',
-  Z: '3.5L 2GR-FKS V6 (278 hp), 2JZ-FE, 1ZZ-FE, 3ZZ-FE'
+  1: ['A25A-FKS - Gasoline, Port + Direct, L4, 2L'],
+  2: ['A25A-FXS, 3NM - Gasoline (Hybrid), Port + Direct, L4, 2.5L'],
+  3: [
+    'A25A-FXS, 3NM (Li) - Gasoline (Hybrid), Port + Direct, L4, 2.5L',
+    'M20A-FKS - Gasoline, Port + Direct, L4, 2L'
+  ],
+  4: ['M20A-FKS - Gasoline, Port + Direct, L4, 2L'],
+  5: ['V35A-FTS - Gasoline (Hybrid), Port + Direct, V6, 3.4L'],
+  6: [
+    'A25A-FKS - Gasoline, Port + Direct, L4, 2L',
+    'M20A-FXS, 3NM - Gasoline (Hybrid), Port + Direct, L4, 2L'
+  ],
+  8: ['2GR-FKS - Gasoline, Port + Direct, V6, 3.5L'],
+  9: [
+    '2ZR-FXE - Gasoline (Hybrid), Port, L4, 1.8L',
+    'M20A-FXS, 3NM, 1MM - Gasoline (Hybrid), Port + Direct, L4, 2L'
+  ],
+  A: [
+    '1XM Motor (Front) - 150kW',
+    '2ZR-FXE, 1NM - Gasoline (Hybrid), Port, L4, 1.8L',
+    '2ZR-FXE, 1NM + 1SM - Gasoline (Hybrid), Port, L4, 1.8L',
+    '8AR-FTS - Gasoline, Port + Direct, L4, 2L',
+    '4A-FE',
+    '2AD-FTV (2005+)'
+  ],
+  B: [
+    '1YM Motor (Front, Rear) - 80kW (Front, Rear)',
+    '2ZR-FXE, 1NM - Gasoline (Hybrid), Port, L4, 1.8L',
+    '7A-FE',
+    '1HZ',
+    '1HD',
+    '2AD-FHV (2005+)'
+  ],
+  C: [
+    '2C',
+    '2CT',
+    '2CT-E'
+  ],
+  D: [
+    '1NZ-FXE - Gasoline (Hybrid), Port, L4, 1.5L',
+    '1NZ-FXE, 1LM - Gasoline (Hybrid), Port, L4, 1.5L'
+  ],
+  E: [
+    '2JZ-GT',
+    '2JZ-GTE',
+    '2AZ-FE'
+  ],
+  F: [
+    '1MZ-FE',
+    '2AR-FE'
+  ],
+  H: [
+    '3ZR-FAE - Gasoline, Port, L4, 2L',
+    '1AZ-FE',
+    '1NR-FE'
+  ],
+  J: [
+    '1FZ-FE',
+    '1AZ-FSE'
+  ],
+  L: ['2SZ-FE'],
+  N: [
+    '5VZ-FE',
+    '2ZR-FXE'
+  ],
+  P: [
+    '2AZ-FSE',
+    '2UR-FAE - Gasoline, Port + Direct, V8, 5L',
+    '2UR-GSE - Gasoline, Port + Direct, V8, 5L'
+  ],
+  R: ['1ZZ-FE'],
+  S: [
+    '3S-FE',
+    '2ZR-FXE',
+    'Electric -- RAV4 EV only'
+  ],
+  T: ['2UZ-FE'],
+  U: [
+    '1GR-FE - Gasoline, Port, V6, 4.0L',
+    '2ZR-FE (Corolla Conquest 2010)'
+  ],
+  V: [
+    '1NR-FE',
+    '1VD-FTV'
+  ],
+  W: [
+    '2NZ-FE',
+    '1CD-FTV',
+    'A25A-FXS, 3NM+4NM - Gasoline (Hybrid), Port + Direct, L4, 2.5L'
+  ],
+  X: [
+    '2TR-FE - Gasoline, Port, L4, 2.7L'
+  ],
+  Y: [
+    '3UR-FE - Gasoline, Port, V8, 5.7L',
+    '2ZZ-GE'
+  ],
+  Z: [
+    '2GR-FKS - Gasoline, Port + Direct, V6, 3.5L',
+    '2JZ-FE',
+    '1ZZ-FE',
+    '3ZZ-FE'
+  ]
 }
 
 // TODO: Series at position 6
 
-// TODO: Restraint at position 7
-
-// TODO: Model/Platform at position 8
+// TODO: Find more of these with a search like `site:*.dot.gov +Toyota "Vehicle identification number coding system"`
+// TODO: Probably change to dict
+// TODO: It looks like this can change based on the model/year
+const restraints = {
+  0: 'Manual Belts w/2 Airbags and Side Curtain Airbags',
+  1: 'Seat Belt: All seats\nFrontal Airbag: Driver & Passenger Seats\nCurtain Shield Airbag: All Rows\nSide Airbag: All Rows\nKnee Airbag: Driver & Passenger Seats',
+  // 1: 'Seat Belt: All seats\nFrontal Airbag: Driver & Passenger Seats\nCurtain Shield Airbag: All Rows\nSide Airbag: 1st & 2nd Rows\nKnee Airbag: Driver & Passenger Seats',
+  2: 'Manual Belts w/2 Airbags (North America), 1 Airbag (Driver Seat) (International)',
+  3: 'Seat Belt: All seats\nFrontal Airbag: Driver & Passenger Seats\nCurtain Shield Airbag: All Rows\nSide Airbag: 1st Row\nKnee Airbag: Driver Seat Only',
+  5: 'Seat Belt: All seats\nFrontal Airbag: Driver & Passenger Seats\nCurtain Shield Airbag: All Rows\nSide Airbag: 1st Row\nKnee Airbag: Driver & Passenger Seats',
+  6: 'Manual Belts w/2 Airbags, Side Airbags, Side Curtain Shield Airbags, and Knee Airbag (Driver Seat)',
+  8: 'Manual Belts w/2 Airbags and Side Airbags',
+  9: 'Manual Belts w/2 Airbags, Side Airbags, and Front Curtain Airbags.',
+  A: 'Seat Belt: All seats\nFrontal Airbag: Driver & Passenger Seats\nCurtain Shield Airbag: 1st & 2nd Rows\nSide Airbag: 1st Row\nKnee Airbag: Driver & Passenger Seats',
+  D: 'Manual Belts w/2 Airbags, Side Airbags, Three-Row Curtain Shield Airbags, and Knee Airbag',
+  F: 'Manual Belts w/2 Airbags, Side Airbags, and Knee Airbag',
+  I: 'Seat Belt: All seats\nFrontal Airbag: Driver & Passenger Seats\nCurtain Shield Airbag: All Rows\nSide Airbag: All Rows\nKnee Airbag: Driver & Passenger Seats',
+  M: 'Seat Belt: All seats\nFrontal Airbag: Driver & Passenger Seats\nCurtain Shield Airbag: All Rows\nSide Airbag: All Rows\nKnee Airbag: Driver Seat Only\nCushion Airbag: Passenger Seat Only',
+  R: 'Seat Belt: All seats\nFrontal Airbag: Driver & Passenger Seats\nCurtain Shield Airbag: All Rows\nSide Airbag: 1st Row\nKnee Airbag: Driver Seat Only\nCushion Airbag: Passenger Seat Only'
+}
 
 const models: Record<string, Model[]> = {
-  0: [{ description: 'MR2/MR2 Spyder', startYear: 0, endYear: Infinity }],
-  1: [{ description: 'Tundra/Tundra', startYear: 0, endYear: Infinity }],
-  3: [{ description: 'Echo/Yaris Verso', startYear: 0, endYear: Infinity }],
-  4: [{ description: 'Yaris/Scion xA/Scion xB/Scion xD/Urban Cruiser', startYear: 0, endYear: Infinity }],
+  0: [
+    { description: 'MR2', startYear: 0, endYear: Infinity },
+    { description: 'MR2 Spyder', startYear: 0, endYear: Infinity }
+  ],
+  1: [
+    { description: 'Tundra', startYear: 0, endYear: Infinity },
+    { description: 'Lexus ES, ES Hybrid', startYear: 0, endYear: Infinity }
+  ],
+  3: [
+    { description: 'Echo', startYear: 0, endYear: Infinity },
+    { description: 'Yaris Verso', startYear: 0, endYear: Infinity }
+  ],
+  4: [
+    { description: 'Yaris', startYear: 0, endYear: Infinity },
+    { description: 'Scion xA', startYear: 0, endYear: Infinity },
+    { description: 'Scion xB', startYear: 0, endYear: Infinity },
+    { description: 'Scion xD', startYear: 0, endYear: Infinity },
+    { description: 'Urban Cruiser', startYear: 0, endYear: Infinity }
+  ],
   6: [{ description: 'Hilux', startYear: 0, endYear: Infinity }],
   7: [{ description: 'Scion tC', startYear: 0, endYear: Infinity }],
-  A: [{ description: 'Highlander/Sequoia/Celica RWD/Supra', startYear: 0, endYear: Infinity }],
-  B: [{ description: 'Avalon/Avensis Verso/Ipsum?', startYear: 0, endYear: Infinity }],
-  C: [{ description: 'Sienna/Previa/Aygo', startYear: 0, endYear: Infinity }],
+  A: [
+    { description: 'bZ4X', startYear: 2023, endYear: Infinity },
+    { description: 'Highlander', startYear: 0, endYear: Infinity },
+    { description: 'Sequoia', startYear: 0, endYear: Infinity },
+    { description: 'Celica RWD', startYear: 0, endYear: Infinity },
+    { description: 'Supra', startYear: 0, endYear: Infinity }
+  ],
+  B: [
+    { description: 'Avalon', startYear: 0, endYear: Infinity },
+    { description: 'Avensis Verso', startYear: 0, endYear: Infinity },
+    { description: 'Ipsum?', startYear: 0, endYear: Infinity }
+  ],
+  C: [
+    { description: 'Sienna', startYear: 0, endYear: Infinity },
+    { description: 'Previa', startYear: 0, endYear: Infinity },
+    { description: 'Aygo', startYear: 0, endYear: Infinity }
+  ],
   D: [{ description: 'T100', startYear: 0, endYear: Infinity }],
-  E: [{ description: 'Corolla/Matrix/Auris', startYear: 0, endYear: Infinity }],
+  E: [
+    { description: 'Corolla', startYear: 0, endYear: Infinity },
+    { description: 'Matrix', startYear: 0, endYear: Infinity },
+    { description: 'Auris', startYear: 0, endYear: Infinity }
+  ],
   F: [{ description: 'FJ Cruiser', startYear: 0, endYear: Infinity }],
-  G: [{ description: 'Hilux/Fortuner', startYear: 0, endYear: Infinity }],
-  H: [{ description: 'Highlander', startYear: 0, endYear: Infinity }],
-  J: [{ description: 'Land Cruiser/Land Cruiser Prado', startYear: 0, endYear: Infinity }],
-  K: [{ description: 'Camry/Aurion(TRD)', startYear: 0, endYear: Infinity }],
-  L: [{ description: 'Tercel/Paseo/Avensis', startYear: 0, endYear: Infinity }],
+  G: [
+    { description: 'Hilux', startYear: 0, endYear: Infinity },
+    { description: 'Fortuner', startYear: 0, endYear: Infinity }
+  ],
+  H: [
+    { description: 'Highlander', startYear: 0, endYear: Infinity },
+    { description: 'Lexus UX, UX Hybrid', startYear: 0, endYear: Infinity }
+  ],
+  J: [
+    { description: 'Land Cruiser', startYear: 0, endYear: Infinity },
+    { description: 'Land Cruiser Prado', startYear: 0, endYear: Infinity }
+  ],
+  K: [
+    { description: 'Camry, Camry Hybrid', startYear: 0, endYear: Infinity },
+    { description: 'Aurion(TRD)', startYear: 0, endYear: Infinity }
+  ],
+  L: [
+    { description: 'Lexus GS F', startYear: 0, endYear: Infinity },
+    { description: 'Tercel', startYear: 0, endYear: Infinity },
+    { description: 'Paseo', startYear: 0, endYear: Infinity },
+    { description: 'Avensis', startYear: 0, endYear: Infinity }
+  ],
   M: [{ description: 'Previa', startYear: 0, endYear: Infinity }],
-  N: [{ description: 'Tacoma/Older Trucks', startYear: 0, endYear: Infinity }],
-  P: [{ description: 'Camry Solara', startYear: 0, endYear: Infinity }],
-  R: [{ description: '4Runner/Corolla Verso', startYear: 0, endYear: Infinity }],
+  N: [
+    { description: 'Tacoma', startYear: 0, endYear: Infinity },
+    { description: 'Older Trucks', startYear: 0, endYear: Infinity }
+  ],
+  P: [
+    { description: 'Prius Prime', startYear: 0, endYear: Infinity },
+    { description: 'Camry Solara', startYear: 0, endYear: Infinity }
+  ],
+  R: [
+    { description: '4Runner', startYear: 0, endYear: Infinity },
+    { description: 'Corolla Verso', startYear: 0, endYear: Infinity }
+  ],
   S: [{ description: 'Fortuner', startYear: 0, endYear: Infinity }],
   T: [{ description: 'Celica FWD', startYear: 0, endYear: Infinity }],
   U: [{ description: 'Prius', startYear: 0, endYear: Infinity }],
-  V: [{ description: 'RAV4', startYear: 0, endYear: Infinity }],
+  V: [{ description: 'RAV4, RAV4 Hybrid', startYear: 0, endYear: Infinity }],
   W: [{ description: 'MR2 (non-spyder models)', startYear: 0, endYear: Infinity }],
-  X: [{ description: 'Cressida', startYear: 0, endYear: Infinity }]
+  X: [
+    { description: 'C-HR', startYear: 0, endYear: Infinity },
+    { description: 'Cressida', startYear: 0, endYear: Infinity }
+  ]
 }
 
 const assemblyPlants = {
@@ -203,8 +378,9 @@ interface FordSpecific {
   assemblyPlant: string
   vehicleType: string
   manufacturer: string
-  engine: string,
-  body: string
+  engine: string
+  // body: string
+  restraint: string
 }
 
 /**
@@ -217,10 +393,10 @@ function decodeVin (vin: string): FordSpecific | null {
   const vehicleType = vehicleTypes[vin[2]]
   const modelYear: number = modelYears(vin)
 
-  let body = 'Unknown'
-  if (bodies[vin[3]] !== undefined) {
-    body = bodies[vin[3]]
-  }
+  // let body = 'Unknown'
+  // if (bodies[vin[3]] !== undefined) {
+  //   body = bodies[vin[3]]
+  // }
 
   let manufacturer = 'Unknown'
   if (manufacturers[vin[1]] !== undefined) {
@@ -239,15 +415,30 @@ function decodeVin (vin: string): FordSpecific | null {
   }
 
   let engine = 'Unknown'
+  let engines: string[]
   const engineCharacter = vin[4]
   if (modelYear < 1996) {
     if (engineBefore1996[engineCharacter] !== undefined) {
-      engine = engineBefore1996[engineCharacter]
+      engines = engineBefore1996[engineCharacter]
     }
   } else {
     if (engineAfter1996[engineCharacter] !== undefined) {
-      engine = engineAfter1996[engineCharacter]
+      engines = engineAfter1996[engineCharacter]
     }
+  }
+  for (const item of engines) {
+    if (engine === 'Unknown') {
+      engine = ''
+    } else {
+      engine += '; '
+    }
+
+    engine += item
+  }
+
+  let restraint = 'Unknown'
+  if (restraints[vin[5]] !== undefined) {
+    restraint = restraints[vin[5]]
   }
 
   let model = 'Unknown'
@@ -290,7 +481,8 @@ function decodeVin (vin: string): FordSpecific | null {
     vehicleType,
     manufacturer,
     engine,
-    body
+    // body,
+    restraint
   }
 }
 
