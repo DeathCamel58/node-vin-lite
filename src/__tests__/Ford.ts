@@ -86,4 +86,32 @@ describe('Ford', () => {
       expect(result).toEqual(expected)
     })
   })
+
+  describe('2024 Ford Mustang Dark Horse Fastback (1FA6P8R00R5501127)', () => {
+    const vin = '1FA6P8R00R5501127'
+
+    test('Decode VIN Data', () => {
+      const result = vinDecoder.decode(vin)
+
+      const expected = {
+        wmi: '1FA',
+        vds: '6P8R00',
+        vis: 'R5501127',
+        sequentialNumber: '501127',
+        check: '0',
+        location: {
+          continent: 'North America',
+          country: 'United States'
+        },
+        manufacturer: 'Ford Motor Company',
+        modelYear: 2024,
+        manufacturerInfo: {
+          model: "Ford Mustang, Coupe; Dark Horse ('24)",
+          assemblyPlant: 'Flat Rock Assembly plant (AutoAlliance International) (Flat Rock, Michigan)'
+        }
+      }
+
+      expect(result).toEqual(expected)
+    })
+  })
 })

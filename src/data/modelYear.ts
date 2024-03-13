@@ -56,7 +56,7 @@ function modelYear (vin: string): number {
     }
   }
 
-  if (modelYearDictionary[yearDigit].value >= switchValue) {
+  if (modelYearDictionary[yearDigit].value > switchValue) {
     year = modelYearDictionary[yearDigit].years[0]
   } else {
     year = modelYearDictionary[yearDigit].years[1]
