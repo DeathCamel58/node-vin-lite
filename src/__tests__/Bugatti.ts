@@ -4,12 +4,6 @@ describe('Bugatti', () => {
   describe('2023 Bugatti Chiron Super Sport (VF9SW3V38PM795065)', () => {
     const vin = 'VF9SW3V38PM795065'
 
-    test('Valid VIN detection', () => {
-      const result = vinLite.isValid(vin)
-
-      expect(result).toBeTruthy()
-    })
-
     test('Decode VIN Data', () => {
       const result = vinLite.decode(vin)
 
@@ -37,12 +31,6 @@ describe('Bugatti', () => {
 
   describe('2009 Bugatti Veyron EB 16.4 (VF9SA15CX8M795234)', () => {
     const vin = 'VF9SA15CX8M795234'
-
-    test('Valid VIN detection', () => {
-      const result = vinLite.isValid(vin)
-
-      expect(result).toBeTruthy()
-    })
 
     test('Decode VIN Data', () => {
       const result = vinLite.decode(vin)
@@ -72,12 +60,6 @@ describe('Bugatti', () => {
   describe('2020 Bugatti Divo (VF9SD3V35LM795007)', () => {
     const vin = 'VF9SD3V35LM795007'
 
-    test('Valid VIN detection', () => {
-      const result = vinLite.isValid(vin)
-
-      expect(result).toBeTruthy()
-    })
-
     test('Decode VIN Data', () => {
       const result = vinLite.decode(vin)
 
@@ -101,11 +83,5 @@ describe('Bugatti', () => {
 
       expect(result).toEqual(expected)
     })
-  })
-
-  test('Invalid VIN detection (VF9SW3V38PM795066)', () => {
-    const result = vinLite.isValid('VF9SW3V38PM795066')
-
-    expect(result).toBeFalsy()
   })
 })

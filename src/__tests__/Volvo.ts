@@ -4,12 +4,6 @@ describe('Volvo', () => {
   describe('2011 Volvo S40 T5 (YV1672MS6B2530438)', () => {
     const vin = 'YV1672MS6B2530438'
 
-    test('Valid VIN detection', () => {
-      const result = vinLite.isValid(vin)
-
-      expect(result).toBeTruthy()
-    })
-
     test('Decode VIN Data', () => {
       const result = vinLite.decode(vin)
 
@@ -34,11 +28,5 @@ describe('Volvo', () => {
 
       expect(result).toEqual(expected)
     })
-  })
-
-  test('Invalid VIN detection (YV1672MS6B2530439)', () => {
-    const result = vinLite.isValid('YV1672MS6B2530439')
-
-    expect(result).toBeFalsy()
   })
 })

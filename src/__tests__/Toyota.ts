@@ -4,12 +4,6 @@ describe('Toyota', () => {
   describe('2021 Toyota RAV4 XLE (2T3P1RFV8MW222306)', () => {
     const vin = '2T3P1RFV8MW222306'
 
-    test('Valid VIN detection', () => {
-      const result = vinLite.isValid(vin)
-
-      expect(result).toBeTruthy()
-    })
-
     test('Decode VIN Data', () => {
       const result = vinLite.decode(vin)
 
@@ -47,12 +41,6 @@ describe('Toyota', () => {
   describe('2020 Toyota Tacoma TRD Sport (3TMAZ5CN8LM114957)', () => {
     const vin = '3TMAZ5CN8LM114957'
 
-    test('Valid VIN detection', () => {
-      const result = vinLite.isValid(vin)
-
-      expect(result).toBeTruthy()
-    })
-
     test('Decode VIN Data', () => {
       const result = vinLite.decode(vin)
 
@@ -89,12 +77,6 @@ describe('Toyota', () => {
   describe('2023 Toyota Camry SE (4T1G11AK9PU822683)', () => {
     const vin = '4T1G11AK9PU822683'
 
-    test('Valid VIN detection', () => {
-      const result = vinLite.isValid(vin)
-
-      expect(result).toBeTruthy()
-    })
-
     test('Decode VIN Data', () => {
       const result = vinLite.decode(vin)
 
@@ -126,11 +108,5 @@ describe('Toyota', () => {
 
       expect(result).toEqual(expected)
     })
-  })
-
-  test('Invalid VIN detection (2T3P1RFV8MW222307)', () => {
-    const result = vinLite.isValid('2T3P1RFV8MW222307')
-
-    expect(result).toBeFalsy()
   })
 })

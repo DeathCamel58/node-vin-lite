@@ -39,7 +39,6 @@ const vehicleTypes = {
   5: 'Incomplete Vehicle (typically a convertible)'
 }
 
-
 // TODO: Figure out these. It looks like every model has a different array of these?
 const bodies = {
   A: '2DR Sedan 2WD',
@@ -206,8 +205,6 @@ const engineAfter1996 = {
   ]
 }
 
-// TODO: Series at position 6
-
 // TODO: Find more of these with a search like `site:*.dot.gov +Toyota "Vehicle identification number coding system"`
 // TODO: Probably change to dict
 // TODO: It looks like this can change based on the model/year
@@ -373,7 +370,7 @@ const assemblyPlants = {
   ]
 }
 
-interface FordSpecific {
+interface ToyotaSpecific {
   model: string
   assemblyPlant: string
   vehicleType: string
@@ -389,7 +386,7 @@ interface FordSpecific {
  * Source: https://en.wikibooks.org/wiki/Vehicle_Identification_Numbers_(VIN_codes)/Toyota/VIN_Codes
  * @param vin {string} The VIN to check
  */
-function decodeVin (vin: string): FordSpecific | null {
+function decodeVin (vin: string): ToyotaSpecific | null {
   const vehicleType = vehicleTypes[vin[2]]
   const modelYear: number = modelYears(vin)
 

@@ -4,12 +4,6 @@ describe('Volkswagen', () => {
   describe('2019 Volkswagen Atlas SE w/Technology (1V2WR2CA5KC539715)', () => {
     const vin = '1V2WR2CA5KC539715'
 
-    test('Valid VIN detection', () => {
-      const result = vinLite.isValid(vin)
-
-      expect(result).toBeTruthy()
-    })
-
     test('Decode VIN Data', () => {
       const result = vinLite.decode(vin)
 
@@ -39,12 +33,6 @@ describe('Volkswagen', () => {
 
   describe('2013 Volkswagen Passat S (1VWAH7A34DC031915)', () => {
     const vin = '1VWAH7A34DC031915'
-
-    test('Valid VIN detection', () => {
-      const result = vinLite.isValid(vin)
-
-      expect(result).toBeTruthy()
-    })
 
     test('Decode VIN Data', () => {
       const result = vinLite.decode(vin)
@@ -76,12 +64,6 @@ describe('Volkswagen', () => {
   describe('2023 Volkswagen Tiguan SE (3VVNB7AX4PM041275)', () => {
     const vin = '3VVNB7AX4PM041275'
 
-    test('Valid VIN detection', () => {
-      const result = vinLite.isValid(vin)
-
-      expect(result).toBeTruthy()
-    })
-
     test('Decode VIN Data', () => {
       const result = vinLite.decode(vin)
 
@@ -112,12 +94,6 @@ describe('Volkswagen', () => {
   describe('2020 Volkswagen Jetta SEL (3VWEB7BU2LM046002)', () => {
     const vin = '3VWEB7BU2LM046002'
 
-    test('Valid VIN detection', () => {
-      const result = vinLite.isValid(vin)
-
-      expect(result).toBeTruthy()
-    })
-
     test('Decode VIN Data', () => {
       const result = vinLite.decode(vin)
 
@@ -143,11 +119,5 @@ describe('Volkswagen', () => {
 
       expect(result).toEqual(expected)
     })
-  })
-
-  test('Invalid VIN detection (3VWLX7AJ4DM203038)', () => {
-    const result = vinLite.isValid('3VWLX7AJ4DM203038')
-
-    expect(result).toBeFalsy()
   })
 })

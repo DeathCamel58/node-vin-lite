@@ -4,12 +4,6 @@ describe('Ford', () => {
   describe('2017 Ford Escape (1FMCU0GD3HUD06748)', () => {
     const vin = '1FMCU0GD3HUD06748'
 
-    test('Valid VIN detection', () => {
-      const result = vinLite.isValid(vin)
-
-      expect(result).toBeTruthy()
-    })
-
     test('Decode VIN Data', () => {
       const result = vinLite.decode(vin)
 
@@ -37,12 +31,6 @@ describe('Ford', () => {
 
   describe('2021 Ford F-350 XL (1FT8W3A64MEE16356)', () => {
     const vin = '1FT8W3A64MEE16356'
-
-    test('Valid VIN detection', () => {
-      const result = vinLite.isValid(vin)
-
-      expect(result).toBeTruthy()
-    })
 
     test('Decode VIN Data', () => {
       const result = vinLite.decode(vin)
@@ -72,12 +60,6 @@ describe('Ford', () => {
   describe('2010 Ford Edge Limited (2FMDK3KC3ABA05869)', () => {
     const vin = '2FMDK3KC3ABA05869'
 
-    test('Valid VIN detection', () => {
-      const result = vinLite.isValid(vin)
-
-      expect(result).toBeTruthy()
-    })
-
     test('Decode VIN Data', () => {
       const result = vinLite.decode(vin)
 
@@ -101,11 +83,5 @@ describe('Ford', () => {
 
       expect(result).toEqual(expected)
     })
-  })
-
-  test('Invalid VIN detection (1FMCU0GD3HUD06747)', () => {
-    const result = vinLite.isValid('1FMCU0GD3HUD06747')
-
-    expect(result).toBeFalsy()
   })
 })

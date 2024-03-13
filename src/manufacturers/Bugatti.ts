@@ -21,6 +21,10 @@ const models2006Through2009: Record<string, Model[]> = {
   SA: [{ description: 'Veyron EB 16.4', startYear: 2006, endYear: 2009 }]
 }
 
+// TODO: Engines
+// TODO: Weight Class
+// TODO: Restraint System
+
 const assemblyPlants = {
   C: [{ description: 'Campogalliano, Italy', startYear: 0, endYear: Infinity }],
   M: [{ description: 'Molsheim, France', startYear: 0, endYear: Infinity }]
