@@ -1,0 +1,297 @@
+import modelYears from '../data/modelYear'
+import type Model from '../common/Model'
+
+const supportedWmis: string[] = ['JTD', 'JTK', 'JTN', 'JTX', 'JT1', 'JT2', 'JT7', 'JTA', 'JTB', 'JTF', 'JT4', 'JTG', 'JTE', 'JTL', 'JTM', 'JT3', 'JT5', 'JTH', 'JTJ', 'JT6', 'JT8', 'JAL', 'JDA', 'JD1', 'JD2', 'JD4', 'JF1', 'JHA', 'JHB', 'JHC', 'JHD', 'JHE', 'JHH', 'JH6', 'AHH', 'AHT', 'LFM', 'LVG', 'MBJ', 'MHF', 'MHK', 'MMK', 'MNK', 'MR0', 'MR1', 'MR2', 'NMT', 'PN1', 'PN2', 'RKL', 'RL4', 'SB1', 'TW1', 'VNK', 'WZ1', 'XW7', 'YAR', '1NX', '2AY', '2AZ', '2T1', '2T2', '2T3', '3MY', '3TM', '3TY', '4G3', '4T1', '4T3', '4T4', '4TA', '5PV', '5TB', '5TD', '5TE', '5TF', '5YF', '58A', '6T1', '7A4', '7H4', '7MU', '7SV', '8AJ', '9BR', '2TH', 'LTV', '4TS', '4TM', '4TD', '4TK', '2TC', '4TV', 'JTU', '4TF', 'JTP', '5TK', '2TS', '2TP', '2T6', '2TF', '5TL', '4T9', 'JTW', '2T9', '4TC', '5T2', '5T3', '4TL', '5TP', '2TK', '4T5', '4TZ', 'JT0', '4TU', '2TR', '4TH', '4TX', '5TN', '5T4', '2TL', '4TE', '2TD', '2TW', '5TY', '5TC', '5T1', 'JTY', '2TJ', '4T8', '5T9', '2TT', '4TB', '2T5', '5T5', '5TR', '2T0', '5TV', '2T4', '4TG', '4T0', '4TY', '4TW', '2TN', '4TT', '5TG', '5TZ', '5TS', '5TH', '2T8', '93R', 'JTR', '2TM', '2TZ', '5T8', '4T7', '2TU', '2TG', '5TU', '4TN', 'JTV', '5T7', 'JT9', 'JTS', '4TR', '5TT', '5TW', '2TA', '4TP', '4TJ', '2T7', 'JTZ', '4T6', 'JTT', '5TA', '2TE', '5TX', '5T0', '4T2', '2TV', '2TB', 'JTC', '2TY', '5TM', '5TJ', '2TX', '5T6']
+
+const manufacturers = {
+  F: [{ description: 'Fuji Heavy Industries LTD', startYear: 0, endYear: Infinity }],
+  G: [{ description: 'GM', startYear: 0, endYear: Infinity }],
+  M: [
+    { description: 'Mazda (Mexico)', startYear: 0, endYear: Infinity },
+    { description: 'Mazda Toyota Manufacturing USA', startYear: 0, endYear: Infinity }
+  ],
+  N: [{ description: 'NUMMI (Toyota car)', startYear: 0, endYear: Infinity }],
+  T: [
+    { description: 'NUMMI (Toyota truck)', startYear: 0, endYear: Infinity },
+    { description: 'Toyota', startYear: 0, endYear: Infinity }
+  ],
+  Y: [{ description: 'Toyota (Mississippi, USA)', startYear: 0, endYear: Infinity }],
+  8: [{ description: 'Toyota (Lexus - Kentucky, USA)', startYear: 0, endYear: Infinity }]
+}
+
+const vehicleTypes = {
+  D: 'Passenger Car',
+  K: 'Passenger Car',
+  N: 'Passenger Car',
+  X: 'Passenger Car',
+  1: 'Passenger Car',
+  2: 'Passenger Car',
+  7: 'Passenger Car',
+  A: 'Truck',
+  B: 'Truck',
+  F: 'Truck',
+  4: 'Truck',
+  G: 'Bus',
+  E: 'Multipurpose Passenger Vehicle (SUV)',
+  L: 'Multipurpose Passenger Vehicle (SUV)',
+  M: 'Multipurpose Passenger Vehicle (SUV)',
+  3: 'Multipurpose Passenger Vehicle (SUV)',
+  5: 'Incomplete Vehicle (typically a convertible)'
+}
+
+const bodies = {
+  A: '2DR Sedan 2WD',
+  B: '4DR Sedan 2WD/Standard Cab Truck, 4WD, Standard Bed, Full-Size Frame',
+  C: '2DR Coupe 2WD',
+  D: '3DR Liftback Coupe 2WD (Celica, Supra)/Double Cab Truck, 4WD, Extra Long Bed, Full-Size Frame',
+  E: '4DR Station Wagon 2WD (Corolla, Camry)/MPV, Double Cab Truck, 2WD, Extra Long Bed, Full-Size Frame',
+  F: '2DR Convertible 2WD',
+  G: '4DR Wagon 2WD',
+  H: '4DR Wagon 4WD',
+  J: '3DR Liftback 2WD (Yaris)/5DR Van AWD/Double Cab Truck, 2WD, Long Bed, Small Frame',
+  K: '5DR Liftback 2WD (Yaris, Prius)/5DR Wagon 2WD (Matrix)/Double Cab Truck, 2WD, Extra Long Bed, Small Frame',
+  L: '5DR Wagon 4WD (Matrix)/Double Cab Truck, 4WD, Long Bed, Small Frame',
+  M: '5DR Door Van 2WD/Double Cab Truck, 4WD, Extra Long Bed, Small Frame',
+  N: 'Standard Cab 1/2 Ton Truck, 2WD, Short Bed, Full-Size Frame',
+  P: 'Standard Cab 1/2 Ton Truck, 4WD, Short Bed, Full-Size Frame',
+  R: 'Standard Cab Truck, 4WD, Standard Bed, Full-Size Frame',
+  S: '3DR Liftback 4WD',
+  T: 'Extra Cab/Access Pickup, 2WD, Long Bed Small Frame',
+  U: 'Extra Cab/Access Pickup, 4WD, Long Bed Small Frame',
+  W: 'Extra Cab/Access Pickup, 4WD, Long Bed Small Frame TRD',
+  X: '5DR Sport Utility Wagon',
+  Y: 'Sport Van',
+  Z: '5DR Wagon 2WD'
+}
+
+// Before 1996 for North America
+const engineBefore1996 = {
+  4: '7A-FE Lean Burn',
+  A: '3MZ-FE',
+  B: '1NZ-FXE or 2AZ-FXE',
+  C: '5E-FE',
+  D: '2JZ-GE',
+  E: '2AZ-FE',
+  F: '1MZ-FE',
+  G: '5S-FE',
+  H: '1UZ-FE',
+  K: '2GR-FE',
+  L: '2RZ-FE',
+  M: '3RZ-FE',
+  N: '5S-FNE or 5VZ-FE',
+  P: '3S-FE',
+  R: '1ZZ-FE',
+  S: '1BM',
+  T: '2UZ-FE or 1NZ-FE or 3S-GTE',
+  U: '1GR-FE',
+  Y: '2ZZ-GE'
+}
+
+// 1996-Present in North America; 2002-Present for the rest of the world
+const engineAfter1996 = {
+  A: '4A-FE, 2AD-FTV (2005+)',
+  B: '7A-FE, 1HZ,1HD,2AD-FHV (2005+)',
+  C: '2C, 2CT, 2CT-E',
+  E: '2JZ-GT, 2JZ-GTE, 2AZ-FE',
+  F: '1MZ-FE, 2AR-FE',
+  H: '1AZ-FE, 1NR-FE',
+  J: '1FZ-FE, 1AZ-FSE',
+  L: '2SZ-FE',
+  N: '5VZ-FE, 2ZR-FXE',
+  P: '2AZ-FSE',
+  R: '1ZZ-FE',
+  S: '3S-FE,2ZR-FXE, or Electric -- RAV4 EV only',
+  T: '2UZ-FE',
+  U: '2ZR-FE (Corolla Conquest 2010)',
+  V: '1NR-FE or 1VD-FTV',
+  W: '2NZ-FE, 1CD-FTV',
+  X: '2TR-FE',
+  Y: '2ZZ-GE, 3UR-FE',
+  Z: '3.5L 2GR-FKS V6 (278 hp), 2JZ-FE, 1ZZ-FE, 3ZZ-FE'
+}
+
+// TODO: Series at position 6
+
+// TODO: Restraint at position 7
+
+// TODO: Model/Platform at position 8
+
+const models: Record<string, Model[]> = {
+  0: [{ description: 'MR2/MR2 Spyder', startYear: 0, endYear: Infinity }],
+  1: [{ description: 'Tundra/Tundra', startYear: 0, endYear: Infinity }],
+  3: [{ description: 'Echo/Yaris Verso', startYear: 0, endYear: Infinity }],
+  4: [{ description: 'Yaris/Scion xA/Scion xB/Scion xD/Urban Cruiser', startYear: 0, endYear: Infinity }],
+  6: [{ description: 'Hilux', startYear: 0, endYear: Infinity }],
+  7: [{ description: 'Scion tC', startYear: 0, endYear: Infinity }],
+  A: [{ description: 'Highlander/Sequoia/Celica RWD/Supra', startYear: 0, endYear: Infinity }],
+  B: [{ description: 'Avalon/Avensis Verso/Ipsum?', startYear: 0, endYear: Infinity }],
+  C: [{ description: 'Sienna/Previa/Aygo', startYear: 0, endYear: Infinity }],
+  D: [{ description: 'T100', startYear: 0, endYear: Infinity }],
+  E: [{ description: 'Corolla/Matrix/Auris', startYear: 0, endYear: Infinity }],
+  F: [{ description: 'FJ Cruiser', startYear: 0, endYear: Infinity }],
+  G: [{ description: 'Hilux/Fortuner', startYear: 0, endYear: Infinity }],
+  H: [{ description: 'Highlander', startYear: 0, endYear: Infinity }],
+  J: [{ description: 'Land Cruiser/Land Cruiser Prado', startYear: 0, endYear: Infinity }],
+  K: [{ description: 'Camry/Aurion(TRD)', startYear: 0, endYear: Infinity }],
+  L: [{ description: 'Tercel/Paseo/Avensis', startYear: 0, endYear: Infinity }],
+  M: [{ description: 'Previa', startYear: 0, endYear: Infinity }],
+  N: [{ description: 'Tacoma/Older Trucks', startYear: 0, endYear: Infinity }],
+  P: [{ description: 'Camry Solara', startYear: 0, endYear: Infinity }],
+  R: [{ description: '4Runner/Corolla Verso', startYear: 0, endYear: Infinity }],
+  S: [{ description: 'Fortuner', startYear: 0, endYear: Infinity }],
+  T: [{ description: 'Celica FWD', startYear: 0, endYear: Infinity }],
+  U: [{ description: 'Prius', startYear: 0, endYear: Infinity }],
+  V: [{ description: 'RAV4', startYear: 0, endYear: Infinity }],
+  W: [{ description: 'MR2 (non-spyder models)', startYear: 0, endYear: Infinity }],
+  X: [{ description: 'Cressida', startYear: 0, endYear: Infinity }]
+}
+
+const assemblyPlants = {
+  0: [{ description: 'Japan', startYear: 0, endYear: Infinity }],
+  1: [{ description: 'Japan', startYear: 0, endYear: Infinity }],
+  2: [{ description: 'Japan', startYear: 0, endYear: Infinity }],
+  3: [{ description: 'Japan', startYear: 0, endYear: Infinity }],
+  4: [{ description: 'Japan', startYear: 0, endYear: Infinity }],
+  5: [{ description: 'Japan', startYear: 0, endYear: Infinity }],
+  6: [{ description: 'Japan', startYear: 0, endYear: Infinity }],
+  7: [
+    { description: 'Japan', startYear: 0, endYear: Infinity },
+    { description: 'Lordstown, OH, US (GM plant)', startYear: 0, endYear: Infinity }
+  ],
+  8: [{ description: 'Japan', startYear: 0, endYear: Infinity }],
+  9: [{ description: 'Japan', startYear: 0, endYear: Infinity }],
+  A: [
+    { description: 'Motomachi plant, Toyota City, Japan', startYear: 0, endYear: Infinity },
+    { description: 'Onnaing-Valenciennes, France (TMMF)', startYear: 0, endYear: Infinity }
+  ],
+  C: [{ description: 'Cambridge, ON, Canada (TMMC)', startYear: 0, endYear: Infinity }],
+  D: [{ description: 'Nagakusa plant, Obu, Japan (Toyota Industries plant)', startYear: 0, endYear: Infinity }],
+  E: [{ description: 'Burnaston, Derbyshire, England, United Kingdom (TMMUK)', startYear: 0, endYear: Infinity }],
+  J: [
+    { description: 'Takaoka plant, Toyota City, Japan', startYear: 0, endYear: Infinity },
+    { description: 'Vigo, Spain (PSA/Stellantis plant)', startYear: 0, endYear: Infinity }
+  ],
+  K: [{ description: 'Hamura, Japan (Hino Motors plant)', startYear: 0, endYear: Infinity }],
+  M: [{ description: 'Tijuana, Baja CA, Mexico (TMMBC)', startYear: 0, endYear: Infinity }],
+  N: [{ description: 'Kolín, Czech Republic (TPCA/TMMCZ)', startYear: 0, endYear: Infinity }],
+  P: [{ description: 'Blue Springs, MS, US (TMMMS)', startYear: 0, endYear: Infinity }],
+  R: [
+    { description: 'Lafayette, IN, US (Subaru of Indiana Automotive)', startYear: 0, endYear: Infinity },
+    { description: 'Adapazari, Sakarya province, Turkey (TMMT)', startYear: 0, endYear: Infinity }
+  ],
+  S: [{ description: 'Princeton, IN, US (TMMI)', startYear: 0, endYear: Infinity }],
+  T: [{ description: 'Apaseo el Grande, Guanajuato, Mexico (TMMGT)', startYear: 0, endYear: Infinity }],
+  U: [{ description: 'Georgetown, KY, US (TMMK)', startYear: 0, endYear: Infinity }],
+  V: [{ description: 'Huntsville, AL, US (MTM USA)', startYear: 0, endYear: Infinity }],
+  W: [
+    { description: 'Woodstock, ON, Canada (TMMC)', startYear: 0, endYear: Infinity },
+    { description: 'Graz, Austria (Magna Steyr)', startYear: 0, endYear: Infinity }
+  ],
+  X: [
+    { description: 'San Antonio, TX, US (TMMTX)', startYear: 0, endYear: Infinity },
+    { description: 'Altona, Victoria, Australia (Toyota Australia)', startYear: 0, endYear: Infinity }
+  ],
+  Y: [{ description: 'Salamanca, Guanajuato, Mexico (Mazda de Mexico Vehicle Operation)', startYear: 0, endYear: Infinity }],
+  Z: [
+    { description: 'Fremont, CA, US (NUMMI)', startYear: 0, endYear: Infinity },
+    { description: 'Lieu-Saint-Amand, France (Sevel Nord - PSA/Stellantis plant)', startYear: 0, endYear: Infinity }
+  ]
+}
+
+interface FordSpecific {
+  model: string
+  assemblyPlant: string
+  vehicleType: string
+  manufacturer: string
+  engine: string,
+  body: string
+}
+
+/**
+ * Decodes Toyota's manufacturer specific VIN data
+ *
+ * Source: https://en.wikibooks.org/wiki/Vehicle_Identification_Numbers_(VIN_codes)/Toyota/VIN_Codes
+ * @param vin {string} The VIN to check
+ */
+function decodeVin (vin: string): FordSpecific | null {
+  const vehicleType = vehicleTypes[vin[2]]
+  const modelYear: number = modelYears(vin)
+
+  let body = 'Unknown'
+  if (bodies[vin[3]] !== undefined) {
+    body = bodies[vin[3]]
+  }
+
+  let manufacturer = 'Unknown'
+  if (manufacturers[vin[1]] !== undefined) {
+    const manufacturerItem = manufacturers[vin[1]]
+
+    for (const item of manufacturerItem) {
+      if (item.startYear <= modelYear && modelYear <= item.endYear) {
+        if (manufacturer !== 'Unknown') {
+          manufacturer += '; '
+        } else {
+          manufacturer = ''
+        }
+        manufacturer += item.description
+      }
+    }
+  }
+
+  let engine = 'Unknown'
+  const engineCharacter = vin[4]
+  if (modelYear < 1996) {
+    if (engineBefore1996[engineCharacter] !== undefined) {
+      engine = engineBefore1996[engineCharacter]
+    }
+  } else {
+    if (engineAfter1996[engineCharacter] !== undefined) {
+      engine = engineAfter1996[engineCharacter]
+    }
+  }
+
+  let model = 'Unknown'
+  const modelCode = vin[7]
+  if (models[modelCode] !== undefined) {
+    const modelMatches = models[modelCode]
+
+    for (const item of modelMatches) {
+      if (item.startYear <= modelYear && modelYear <= item.endYear) {
+        if (model !== 'Unknown') {
+          model += '; '
+        } else {
+          model = ''
+        }
+        model += item.description
+      }
+    }
+  }
+
+  let assemblyPlant = 'Unknown'
+  const assemblyPlantDigit = vin[10]
+  if (assemblyPlants[assemblyPlantDigit] !== undefined) {
+    const plants = assemblyPlants[assemblyPlantDigit]
+
+    for (const plant of plants) {
+      if (plant.startYear <= modelYear && modelYear <= plant.endYear) {
+        if (assemblyPlant !== 'Unknown') {
+          assemblyPlant += '; '
+        } else {
+          assemblyPlant = ''
+        }
+        assemblyPlant += plant.description
+      }
+    }
+  }
+
+  return {
+    model,
+    assemblyPlant,
+    vehicleType,
+    manufacturer,
+    engine,
+    body
+  }
+}
+
+export { supportedWmis, decodeVin }
