@@ -1,5 +1,4 @@
 import modelYears from '../data/modelYear'
-import rangeYearSelector from '../lib/rangeYearSelector'
 import type Model from '../common/Model'
 
 const supportedWmis: string[] = ['VF9', 'ZA9']
@@ -22,9 +21,9 @@ const models2006Through2009: Record<string, Model[]> = {
   SA: [{ description: 'Veyron EB 16.4', startYear: 2006, endYear: 2009 }]
 }
 
-const factory = {
-  C: 'Campogalliano, Italy',
-  M: 'Molsheim, France'
+const assemblyPlants = {
+  C: [{ description: 'Campogalliano, Italy', startYear: 0, endYear: Infinity }],
+  M: [{ description: 'Molsheim, France', startYear: 0, endYear: Infinity }]
 }
 
 interface BugattiSpecific {
@@ -40,9 +39,8 @@ interface BugattiSpecific {
  */
 function decodeVin (vin: string): BugattiSpecific | null {
   const modelCode = vin.slice(3, 5)
-  const placeCode = vin[10]
   const modelYear: number = modelYears(vin)
-  let assemblyPlant = factory[placeCode]
+  const assemblyPlantDigit = vin[10]
 
   // Swap out the models depending on the year range
   let models: Record<string, Model[]>
@@ -69,8 +67,20 @@ function decodeVin (vin: string): BugattiSpecific | null {
     }
   }
 
-  if (typeof assemblyPlant === 'object') {
-    assemblyPlant = rangeYearSelector(assemblyPlant, modelYear)
+  let assemblyPlant = 'Unknown'
+  if (assemblyPlants[assemblyPlantDigit] !== undefined) {
+    const plants = assemblyPlants[assemblyPlantDigit]
+
+    for (const plant of plants) {
+      if (plant.startYear <= modelYear && modelYear <= plant.endYear) {
+        if (assemblyPlant !== 'Unknown') {
+          assemblyPlant += '; '
+        } else {
+          assemblyPlant = ''
+        }
+        assemblyPlant += plant.description
+      }
+    }
   }
 
   return {

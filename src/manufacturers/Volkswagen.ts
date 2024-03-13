@@ -1,5 +1,4 @@
 import modelYears from '../data/modelYear'
-import rangeYearSelector from '../lib/rangeYearSelector'
 import type Model from '../common/Model'
 
 const supportedWmis: string[] = ['WVW', 'WVG', 'WV1', 'WV2', 'WV3', 'VWV', 'AAV', '1VW', '1V1', '3VW', '3VV', '8AW', '9BW', 'WAU', 'TRU', '93V', '2V4']
@@ -87,54 +86,54 @@ const models: Record<string, Model[]> = {
   SY: [{ description: 'Crafter 2', startYear: 0, endYear: Infinity }]
 }
 
-const factory = {
-  A: 'Ingolstadt, Germany',
-  B: 'Brussels, Belgium',
-  C: 'Chattanooga, USA',
+const assemblyPlants = {
+  A: [{ description: 'Ingolstadt, Germany', startYear: 0, endYear: Infinity }],
+  B: [{ description: 'Brussels, Belgium', startYear: 0, endYear: Infinity }],
+  C: [{ description: 'Chattanooga, USA', startYear: 0, endYear: Infinity }],
 
   // `D` can also be `Barcelona, Spain`
   // Ref: https://checkcar.vin/vin-decoder/volkswagen
-  D: 'Bratislava, Slovakia',
-  E: 'Emden, Germany',
-  F: 'Ipiranga / Resende, Brazil',
+  D: [{ description: 'Bratislava, Slovakia', startYear: 0, endYear: Infinity }],
+  E: [{ description: 'Emden, Germany', startYear: 0, endYear: Infinity }],
+  F: [{ description: 'Ipiranga / Resende, Brazil', startYear: 0, endYear: Infinity }],
 
   // `G` can also be `Kaluga, Russia`
   // Ref: https://checkcar.vin/vin-decoder/volkswagen
-  G: 'Graz, Austria',
-  H: 'Hanover, Germany',
-  K: 'Osnabrück, Germany',
-  L: 'Lagos, Nigeria',
-  M: 'Puebla, Mexico',
-  N: 'Neckarsulm, Germany',
-  P: 'Mosel, Germany or Anchieta, Brazil',
-  R: 'Martorell, Spain',
-  S: 'Salzgitter, Germany',
+  G: [{ description: 'Graz, Austria', startYear: 0, endYear: Infinity }],
+  H: [{ description: 'Hanover, Germany', startYear: 0, endYear: Infinity }],
+  K: [{ description: 'Osnabrück, Germany', startYear: 0, endYear: Infinity }],
+  L: [{ description: 'Lagos, Nigeria', startYear: 0, endYear: Infinity }],
+  M: [{ description: 'Puebla, Mexico', startYear: 0, endYear: Infinity }],
+  N: [{ description: 'Neckarsulm, Germany', startYear: 0, endYear: Infinity }],
+  P: [{ description: 'Mosel, Germany or Anchieta, Brazil', startYear: 0, endYear: Infinity }],
+  R: [{ description: 'Martorell, Spain', startYear: 0, endYear: Infinity }],
+  S: [{ description: 'Salzgitter, Germany', startYear: 0, endYear: Infinity }],
 
   // `T` can also be `Sarajevo, Bosnia`
   // Ref: https://checkcar.vin/vin-decoder/volkswagen
-  T: {
-    1994: 'Sarajevo, Yugoslavia (up to 1994)',
-    present: 'Taubaté, Brazil'
-  },
-  U: 'Uitenhage, South Africa',
-  V: {
-    1994: 'Westmoreland, USA (up to 1994)',
-    present: 'Palmela, Portugal (from 1994)'
-  },
-  W: 'Wolfsburg, Germany',
-  X: 'Poznan, Poland',
+  T: [
+    { description: 'Sarajevo, Yugoslavia (up to 1994)', startYear: 0, endYear: 1994 },
+    { description: 'Taubaté, Brazil', startYear: 1995, endYear: Infinity }
+  ],
+  U: [{ description: 'Uitenhage, South Africa', startYear: 0, endYear: Infinity }],
+  V: [
+    { description: 'Westmoreland, USA (up to 1994)', startYear: 0, endYear: 1994 },
+    { description: 'Palmela, Portugal (from 1994)', startYear: 1995, endYear: Infinity }
+  ],
+  W: [{ description: 'Wolfsburg, Germany', startYear: 0, endYear: Infinity }],
+  X: [{ description: 'Poznan, Poland', startYear: 0, endYear: Infinity }],
 
   // `Y` can also be `Barcelona`
   // Ref: https://checkcar.vin/vin-decoder/volkswagen
-  Y: 'Pamplona, Spain',
-  Z: 'Zuffenhausen, Germany',
-  1: 'Győr, Hungary',
-  2: 'Anting, China',
-  3: 'Changchun, China',
-  4: 'Curitiba, Brazil',
-  6: 'Düsseldorf, Germany (Mercedes-Benz)',
-  7: 'Ludwigsfelde, Germany (Mercedes-Benz)',
-  8: 'Dresden, Germany or General Pacheco, Argentina'
+  Y: [{ description: 'Pamplona, Spain', startYear: 0, endYear: Infinity }],
+  Z: [{ description: 'Zuffenhausen, Germany', startYear: 0, endYear: Infinity }],
+  1: [{ description: 'Győr, Hungary', startYear: 0, endYear: Infinity }],
+  2: [{ description: 'Anting, China', startYear: 0, endYear: Infinity }],
+  3: [{ description: 'Changchun, China', startYear: 0, endYear: Infinity }],
+  4: [{ description: 'Curitiba, Brazil', startYear: 0, endYear: Infinity }],
+  6: [{ description: 'Düsseldorf, Germany (Mercedes-Benz)', startYear: 0, endYear: Infinity }],
+  7: [{ description: 'Ludwigsfelde, Germany (Mercedes-Benz)', startYear: 0, endYear: Infinity }],
+  8: [{ description: 'Dresden, Germany or General Pacheco, Argentina', startYear: 0, endYear: Infinity }]
 }
 
 interface VolkswagenSpecific {
@@ -150,9 +149,8 @@ interface VolkswagenSpecific {
  */
 function decodeVin (vin: string): VolkswagenSpecific | null {
   const modelCode = vin.slice(6, 8)
-  const placeCode = vin[10]
   const modelYear: number = modelYears(vin)
-  let assemblyPlant = factory[placeCode]
+  const assemblyPlantDigit = vin[10]
 
   let model = 'Unknown'
   if (models[modelCode] !== undefined) {
@@ -170,8 +168,20 @@ function decodeVin (vin: string): VolkswagenSpecific | null {
     }
   }
 
-  if (typeof assemblyPlant === 'object') {
-    assemblyPlant = rangeYearSelector(assemblyPlant, modelYear)
+  let assemblyPlant = 'Unknown'
+  if (assemblyPlants[assemblyPlantDigit] !== undefined) {
+    const plants = assemblyPlants[assemblyPlantDigit]
+
+    for (const plant of plants) {
+      if (plant.startYear <= modelYear && modelYear <= plant.endYear) {
+        if (assemblyPlant !== 'Unknown') {
+          assemblyPlant += '; '
+        } else {
+          assemblyPlant = ''
+        }
+        assemblyPlant += plant.description
+      }
+    }
   }
 
   return {

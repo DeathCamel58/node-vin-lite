@@ -43,51 +43,54 @@ const vehicleCode = {
   V: 'V40'
 }
 
-const safety = {
-  A: 'Air Bag & 3-Point Safety Harness (Seat Belt)',
-  X: '3-Point Safety Harness (Seat Belt)'
-}
-
-const bodyAndSafety = {
-  S: 'Sedan (4-door) with Air Bag & 3-Point Safety Harness (Seat Belt)',
-  W: 'Wagon (5-door) with Air Bag & 3-Point Safety Harness (Seat Belt)',
-  T: 'Sedan (4-door) 3-Point Safety Harness (Seat Belt) - Canada',
-  X: 'Wagon (5-door) 3-Point Safety Harness (Seat Belt) - Canada'
-}
-
-const vehiclePlatform = {
-  C: 'All-New C70',
-  H: 'S40 AWD, S60 AWD, S80 AWD',
-  J: 'V50 AWD, V70 AWD',
-  K: 'C30 FWD',
-  L: 'XC60 2WD',
-  M: {
-    2013: 'XC90 5-Seater AWD',
-    present: 'V40 Cross Country AWD'
-  },
-  N: 'XC90 5-Seater FWD',
-  R: 'XC90 5-Seater AWD',
-  S: 'S40 FWD, S60 FWD, S80 FWD',
-  V: 'V40 FWD',
-  W: 'V50 FWD, V60 FWD, V60 Plug-In Hybrid (AWD), V70 FWD, V70 AWD',
-  Y: 'XC90 7-Seater FWD',
-  Z: 'XC60 AWD, XC70 AWD, XC90 7-Seater AWD'
-}
-
-const digit5Arr = {
-  1992: {
+const digit5Arr = [
+  {
     description: 'SafetyEquipment',
-    data: safety
+    data: {
+      A: 'Air Bag & 3-Point Safety Harness (Seat Belt)',
+      C: 'Air Bag & 3-point Safety Harness (Seat Belt) & Seat Belt Tensioners',
+      X: '3-Point Safety Harness (Seat Belt)',
+      Y: '3-Point Safety Harness (Seat Belt) & Seat Belt Tensioners'
+    },
+    startYear: 1981,
+    endYear: 1991
   },
-  1998: {
+  {
     description: 'BodyandSafetyEquipment',
-    data: bodyAndSafety
+    data: {
+      S: 'Sedan (4-door) with Air Bag & 3-Point Safety Harness (Seat Belt)',
+      W: 'Wagon (5-door) with Air Bag & 3-Point Safety Harness (Seat Belt)',
+      T: 'Sedan (4-door) 3-Point Safety Harness (Seat Belt) - Canada',
+      X: 'Wagon (5-door) 3-Point Safety Harness (Seat Belt) - Canada'
+    },
+    startYear: 1992,
+    endYear: 1998
   },
-  present: {
+  {
     description: 'VehiclePlatform',
-    data: vehiclePlatform
+    data: {
+      C: 'All-New C70',
+      H: 'S40 AWD, S60 AWD, S80 AWD',
+      J: 'V50 AWD, V70 AWD',
+      K: 'C30 FWD',
+      L: 'XC60 2WD',
+      M: {
+        2013: 'XC90 5-Seater AWD',
+        present: 'V40 Cross Country AWD'
+      },
+      N: 'XC90 5-Seater FWD',
+      R: 'XC90 5-Seater AWD',
+      S: 'S40 FWD, S60 FWD, S80 FWD',
+      T: 'XC90 R-Design',
+      V: 'V40 FWD',
+      W: 'V50 FWD, V60 FWD, V60 Plug-In Hybrid (AWD), V70 FWD, V70 AWD',
+      Y: 'XC90 7-Seater FWD',
+      Z: 'XC60 AWD, XC70 AWD, XC90 7-Seater AWD'
+    },
+    startYear: 1999,
+    endYear: Infinity
   }
-}
+]
 
 const engineCodeArr = {
   17: 'B4204S2 V40 2.0l FWD',
@@ -170,17 +173,19 @@ const engineCodeArr = {
   96: 'B6204F without air pump'
 }
 
-const digit8Arr = {
-  1992: {
+const digit8Arr = [
+  {
     description: 'SafetyEquipment',
     data: {
       2: '2 Door',
       4: '4 Door',
       5: '5 Door (Wagon)',
       7: '2 Door Coupe (Bertone)'
-    }
+    },
+    startYear: 0,
+    endYear: 1992
   },
-  present: {
+  {
     description: 'EmissionControlEquipment',
     data: {
       0: 'SULEV+ (Super Ultra Low Emissions Vehicle) / Engine Codes 39, 55, 64, 72',
@@ -189,9 +194,11 @@ const digit8Arr = {
       7: 'LEV2 (Low Emissions Vehicle) / Engine Codes 52, 54',
       8: 'Engine Codes 70',
       D: 'L6'
-    }
+    },
+    startYear: 1993,
+    endYear: Infinity
   }
-}
+]
 
 const gearboxArr = {
   1: 'M90/M56 Manual (USA - CDN Check Code)',
@@ -205,12 +212,12 @@ const gearboxArr = {
   9: 'AW55-50SN Auto V50, AW55-51 S40D5 AT (USA - CDN Check Code)'
 }
 
-const factory = {
+const assemblyPlants = {
   0: 'Sweden Kalmar Plant',
-  1: 'Sweden] Torslanda Plant VCT 21(Volvo Torslandaverken) (Gothenburg)',
-  2: 'Belgium] Ghent Plant VCG 22',
-  3: 'Canada] Halifax Plant',
-  4: 'Italy] - Bertone models 240',
+  1: 'Sweden Torslanda Plant VCT 21(Volvo Torslandaverken) (Gothenburg)',
+  2: 'Belgium Ghent Plant VCG 22',
+  3: 'Canada Halifax Plant',
+  4: 'Italy - Bertone models 240',
   5: 'Malaysia',
   6: 'Australia',
   7: 'Indonesia',
@@ -219,12 +226,12 @@ const factory = {
   D: 'Italy - Bertone models 780',
   E: 'Singapore',
   F: 'The Netherlands] Born Plant (NEDCAR)',
-  J: 'Sweden] Uddevalla Plant VCU 38 (Volvo Cars/ Pininfarina Sverige AB)',
+  J: 'Sweden Uddevalla Plant VCU 38 (Volvo Cars/ Pininfarina Sverige AB)',
   M: 'PVÖ 53'
 }
 
 interface VolvoSpecific {
-  // Ford-specific decoding logic
+  // Volvo-specific decoding logic
 }
 
 /**
@@ -240,9 +247,9 @@ function decodeVin (vin: string): VolvoSpecific | null {
   const gearbox = vin[8]
   const engineCode = vin.slice(5, 7)
   const placeCode = vin[10]
-  const modelYear = modelYears(vin[9])
+  const modelYear = modelYears(vin)
   let description = vehicleCode[digit4]
-  const place = factory[placeCode]
+  const assemblyPlant = assemblyPlants[placeCode]
 
   if (typeof description === 'object') {
     description = rangeYearSelector(description, modelYear)
@@ -250,12 +257,17 @@ function decodeVin (vin: string): VolvoSpecific | null {
 
   const result = {
     description,
-    place,
+    assemblyPlant,
     gearbox: gearboxArr[gearbox],
     engine: null
   }
 
-  const digit5Desc = rangeYearSelector(digit5Arr, modelYear)
+  let digit5Desc
+  for (const option of digit5Arr) {
+    if (option.startYear <= modelYear && modelYear <= option.endYear) {
+      digit5Desc = option
+    }
+  }
   result[digit5Desc.description] = digit5Desc.data[digit5]
 
   if (typeof result[digit5Desc.description] === 'object') {
@@ -267,7 +279,12 @@ function decodeVin (vin: string): VolvoSpecific | null {
     result.engine = rangeYearSelector(result.engine, modelYear)
   }
 
-  const digit8Desc = rangeYearSelector(digit8Arr, modelYear)
+  let digit8Desc
+  for (const option of digit8Arr) {
+    if (option.startYear <= modelYear && modelYear <= option.endYear) {
+      digit8Desc = option
+    }
+  }
   result[digit8Desc.description] = digit8Desc.data[digit8]
 
   if (typeof result[digit8Desc.description] === 'object') {

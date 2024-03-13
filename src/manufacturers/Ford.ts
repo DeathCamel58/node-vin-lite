@@ -22,16 +22,6 @@ const supportedWmis: string[] = ['AFA', 'JC0', 'JC2', 'KNJ', 'LFA', 'LJX', 'LVS'
 //   6: { present: 'Active Belts plus Driver and Passenger Front Airbags & Side Airbags (1st & 2nd row) & Driver and Passenger Knee Airbags (\'13-)' },
 // };
 
-// Format:
-// If multiple models for a code:
-// {
-//   '<code>': [
-//     {description: '<description>', startYear: <first model year>, endYear: <last model year>},
-//     ... // As many as necessary
-//   ]
-// }
-// TODO: Finish standardizing these. The ones using the wrong format won't resolve to a model
-
 const models: Record<string, Model[]> = {
 // const models = {
   A11: [
