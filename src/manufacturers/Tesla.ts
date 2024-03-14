@@ -123,8 +123,6 @@ interface TeslaStandard {
 
 /**
  * Decodes Tesla's manufacturer specific VIN data
- *
- * Source: https://en.wikibooks.org/wiki/Vehicle_Identification_Numbers_(VIN_codes)/Toyota/VIN_Codes
  * @param vin {string} The VIN to check
  */
 function decodeVin (vin: string): TeslaStandard | null {
