@@ -1,6 +1,7 @@
 // Manufacturer modules
 import * as BugattiDecoder from '../manufacturers/Bugatti'
 import * as FordDecoder from '../manufacturers/Ford'
+import * as FerrariDecoder from '../manufacturers/Ferrari'
 import * as TeslaDecoder from '../manufacturers/Tesla'
 import * as ToyotaDecoder from '../manufacturers/Toyota'
 import * as VolkswagenDecoder from '../manufacturers/Volkswagen'
@@ -16,6 +17,7 @@ interface ManufacturerDecoder {
 const manufacturers: Record<string, any> = {
   bugattiDecoder: BugattiDecoder,
   fordDecoder: FordDecoder,
+  ferrariDecoder: FerrariDecoder,
   teslaDecoder: TeslaDecoder,
   toyotaDecoder: ToyotaDecoder,
   volkswagenDecoder: VolkswagenDecoder,
