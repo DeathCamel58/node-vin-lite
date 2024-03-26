@@ -260,15 +260,15 @@ const models: Record<string, Model[]> = {
     { description: 'Ford E-Series, E-350 Super Duty stripped chassis (\'10-)', startYear: 2010, endYear: Infinity }
   ],
   E40: [
-    { description: 'Ford E-Series, E-Super Duty RV cutaway (\'96-\'98), E-450 Super Duty RV cutaway (\'99)', startYear: 1996, endYear: 1998 },
-    { description: 'Ford E-Series, E-450 Super Duty RV cutaway (\'99)', startYear: 1999, endYear: Infinity }
+    { description: 'Ford E-Series, E-Super Duty RV cutaway (\'96-\'98)', startYear: 1996, endYear: 1998 },
+    { description: 'Ford E-Series, E-450 Super Duty RV cutaway (\'99)', startYear: 1999, endYear: 1999 }
   ],
   E45: [
     { description: 'Ford E-Series, E-450 Super Duty cutaway (\'00-\'09)', startYear: 2000, endYear: 2009 }
   ],
   E47: [
-    { description: 'Ford E-Series, E-Super Duty Commercial cutaway (\'96-\'98), E-450 Super Duty Commercial cutaway (\'99)', startYear: 1996, endYear: 1998 },
-    { description: 'Ford E-Series, E-450 Super Duty Commercial cutaway (\'99)', startYear: 1999, endYear: Infinity }
+    { description: 'Ford E-Series, E-Super Duty Commercial cutaway (\'96-\'98)', startYear: 1996, endYear: 1998 },
+    { description: 'Ford E-Series, E-450 Super Duty Commercial cutaway (\'99)', startYear: 1999, endYear: 1999 }
   ],
   E49: [
     { description: 'Ford E-Series, E-450 Super Duty stripped chassis (\'00-\'09)', startYear: 2000, endYear: 2009 }
@@ -530,16 +530,16 @@ const models: Record<string, Model[]> = {
     { description: 'Ford F-Series, Super Duty F-450, Regular Cab, 4WD, Chassis Cab, Dual Rear Wheels (\'99-\'09)', startYear: 1999, endYear: 2009 }
   ],
   F4C: [
-    { description: 'Ford F-Series, Super Duty F-450, Regular Cab, 2WD, Dual Rear Wheels (\'19-)', startYear: 2019, endYear: null }
+    { description: 'Ford F-Series, Super Duty F-450, Regular Cab, 2WD, Dual Rear Wheels (\'19-)', startYear: 2019, endYear: Infinity }
   ],
   F4D: [
-    { description: 'Ford F-Series, Super Duty F-450, Regular Cab, 4WD, Dual Rear Wheels (\'19-)', startYear: 2019, endYear: null }
+    { description: 'Ford F-Series, Super Duty F-450, Regular Cab, 4WD, Dual Rear Wheels (\'19-)', startYear: 2019, endYear: Infinity }
   ],
   F4G: [
-    { description: 'Ford F-Series, Super Duty F-450, Regular Cab, 2WD, Chassis Cab, Dual Rear Wheels (\'10-)', startYear: 2010, endYear: null }
+    { description: 'Ford F-Series, Super Duty F-450, Regular Cab, 2WD, Chassis Cab, Dual Rear Wheels (\'10-)', startYear: 2010, endYear: Infinity }
   ],
   F4H: [
-    { description: 'Ford F-Series, Super Duty F-450, Regular Cab, 4WD, Chassis Cab, Dual Rear Wheels (\'10-)', startYear: 2010, endYear: null }
+    { description: 'Ford F-Series, Super Duty F-450, Regular Cab, 4WD, Chassis Cab, Dual Rear Wheels (\'10-)', startYear: 2010, endYear: Infinity }
   ],
 
   F4U: [
@@ -772,17 +772,35 @@ const models: Record<string, Model[]> = {
   J9X: [{ description: 'Lincoln Aviator; Black Label, AWD (\'20-)', startYear: 2020, endYear: Infinity }],
   J9Y: [{ description: 'Lincoln Aviator; Black Label Grand Touring, AWD (\'20-\'23)', startYear: 2020, endYear: 2023 }],
   K01: [{ description: 'Ford Freestyle; SE, FWD (\'05-\'06)', startYear: 2005, endYear: 2006 }],
-  K02: [{ description: 'Ford Freestyle (\'05-\'07)/Ford Taurus X (\'08-\'09); SEL, FWD', startYear: 2005, endYear: 2009 }],
-  K03: [{ description: 'Ford Freestyle (\'05-\'07)/Taurus X (\'08-\'09); Limited, FWD', startYear: 2005, endYear: 2009 }],
+  K02: [
+    { description: 'Ford Freestyle (\'05-\'07); SEL, FWD', startYear: 2005, endYear: 2007 },
+    { description: '/Ford Taurus X (\'08-\'09); SEL, FWD', startYear: 2008, endYear: 2009 }
+  ],
+  K03: [
+    { description: 'Ford Freestyle (\'05-\'07); Limited, FWD', startYear: 2005, endYear: 2007 },
+    { description: 'Taurus X (\'08-\'09); Limited, FWD', startYear: 2008, endYear: 2009 }
+  ],
   K04: [{ description: 'Ford Freestyle; SE, AWD (\'05-\'06)', startYear: 2005, endYear: 2006 }],
-  K05: [{ description: 'Ford Freestyle (\'05-\'07)/Taurus X (\'08-\'09); SEL, AWD', startYear: 2005, endYear: 2009 }],
-  K06: [{ description: 'Ford Freestyle (\'05-\'07)/Taurus X (\'08-\'09); Limited, AWD', startYear: 2005, endYear: 2009 }],
+  K05: [
+    { description: 'Ford Freestyle (\'05-\'07); SEL, AWD', startYear: 2005, endYear: 2007 },
+    { description: 'Taurus X (\'08-\'09); SEL, AWD', startYear: 2008, endYear: 2009 }
+  ],
+  K06: [
+    { description: 'Ford Freestyle (\'05-\'07); Limited, AWD', startYear: 2005, endYear: 2007 },
+    { description: 'Taurus X (\'08-\'09); Limited, AWD', startYear: 2008, endYear: 2009 }
+  ],
   K07: [{ description: 'Ford Taurus X; Eddie Bauer, FWD (\'08-\'09)', startYear: 2008, endYear: 2009 }],
   K08: [{ description: 'Ford Taurus X; Eddie Bauer, AWD (\'08-\'09)', startYear: 2008, endYear: 2009 }],
   K15: [{ description: 'Ford Expedition EL; 4x2, XLT (\'07-\'09)', startYear: 2007, endYear: 2009 }],
   K16: [{ description: 'Ford Expedition EL; 4x4, XLT (\'07-\'09)', startYear: 2007, endYear: 2009 }],
-  K17: [{ description: 'Ford Expedition EL; 4x2, Eddie Bauer (\'07-\'09), King Ranch (\'08-\'09)', startYear: 2007, endYear: 2009 }],
-  K18: [{ description: 'Ford Expedition EL; 4x4, Eddie Bauer (\'07-\'09), King Ranch (\'08-\'09)', startYear: 2007, endYear: 2009 }],
+  K17: [
+    { description: 'Ford Expedition EL; 4x2, Eddie Bauer (\'07-\'09)', startYear: 2007, endYear: 2009 },
+    { description: 'Ford Expedition EL; 4x2, King Ranch (\'08-\'09)', startYear: 2008, endYear: 2009 }
+  ],
+  K18: [
+    { description: 'Ford Expedition EL; 4x4, Eddie Bauer (\'07-\'09)', startYear: 2007, endYear: 2009 },
+    { description: 'Ford Expedition EL; 4x4, King Ranch (\'08-\'09)', startYear: 2008, endYear: 2009 }
+  ],
   K19: [{ description: 'Ford Expedition EL; 4x2, Limited (\'07-\'09)', startYear: 2007, endYear: 2009 }],
   K1C: [
     { description: 'Ford Transit 150, Passenger Van, Medium Roof, Regular (130 in.) wheelbase, RWD (\'20-\'22)', startYear: 2020, endYear: 2022 },
@@ -941,7 +959,8 @@ const models: Record<string, Model[]> = {
     { description: 'Ford Flex; SEL FWD (\'10-\'19)', startYear: 2010, endYear: 2019 }
   ],
   K5D: [
-    { description: 'Ford Flex; Limited FWD (\'10-\'19), Titanium FWD (\'11-\'12)', startYear: 2010, endYear: 2019 }
+    { description: 'Ford Flex; Limited FWD (\'10-\'19)', startYear: 2010, endYear: 2019 },
+    { description: 'Ford Flex; Titanium FWD (\'11-\'12)', startYear: 2011, endYear: 2012 }
   ],
   K62: [
     { description: 'Ford Flex; SEL, AWD (\'09)', startYear: 2009, endYear: 2009 }
@@ -953,7 +972,8 @@ const models: Record<string, Model[]> = {
     { description: 'Ford Flex; SEL AWD (\'10-\'19)', startYear: 2010, endYear: 2019 }
   ],
   K6D: [
-    { description: 'Ford Flex; Limited AWD (\'10-\'19), Titanium AWD (\'11-\'12)', startYear: 2010, endYear: 2019 }
+    { description: 'Ford Flex; Limited AWD (\'10-\'19)', startYear: 2010, endYear: 2019 },
+    { description: 'Ford Flex; Titanium AWD (\'11-\'12)', startYear: 2011, endYear: 2012 }
   ],
   K7A: [
     { description: 'Ford Explorer; Police Interceptor Utility, FWD (\'13)', startYear: 2013, endYear: 2013 }
@@ -1195,7 +1215,8 @@ const models: Record<string, Model[]> = {
     { description: 'Mercury Topaz; 2-door sedan; GS (\'87-\'94)', startYear: 1987, endYear: 1994 }
   ],
   M33: [
-    { description: 'Mercury Topaz; 2-door sedan; GS Sport (\'87), XR5 (\'88-\'92)', startYear: 1987, endYear: 1992 }
+    { description: 'Mercury Topaz; 2-door sedan; GS Sport (\'87)', startYear: 1987, endYear: 1987 },
+    { description: 'Mercury Topaz; 2-door sedan; XR5 (\'88-\'92)', startYear: 1988, endYear: 1992 }
   ],
   M36: [
     { description: 'Mercury Topaz; 4-door sedan; GS (\'87-\'94)', startYear: 1987, endYear: 1994 }
@@ -1204,19 +1225,24 @@ const models: Record<string, Model[]> = {
     { description: 'Mercury Topaz; 4-door sedan; LS (\'87-\'92)', startYear: 1987, endYear: 1992 }
   ],
   M38: [
-    { description: 'Mercury Topaz; 4-door sedan; GS Sport (\'87), LTS (\'88-\'92)', startYear: 1987, endYear: 1992 }
+    { description: 'Mercury Topaz; 4-door sedan; GS Sport (\'87)', startYear: 1987, endYear: 1987 },
+    { description: 'Mercury Topaz; 4-door sedan; LTS (\'88-\'92)', startYear: 1988, endYear: 1992 }
   ],
   M40: [
-    { description: 'Mercury Montego; Luxury FWD (\'05-\'07)/Mercury Sable; Base model FWD (\'08-\'09)', startYear: 2005, endYear: 2009 }
+    { description: 'Mercury Montego; Luxury FWD (\'05-\'07)', startYear: 2005, endYear: 2007 },
+    { description: 'Mercury Sable; Base model FWD (\'08-\'09)', startYear: 2008, endYear: 2009 }
   ],
   M41: [
-    { description: 'Mercury Montego; Luxury AWD (\'05-\'06)/Mercury Sable; Base model AWD (\'08-\'09)', startYear: 2005, endYear: 2009 }
+    { description: 'Mercury Montego; Luxury FWD (\'05-\'07)', startYear: 2005, endYear: 2007 },
+    { description: 'Mercury Sable; Base model FWD (\'08-\'09)', startYear: 2008, endYear: 2009 }
   ],
   M42: [
-    { description: 'Mercury Montego; Premier FWD (\'05-\'07)/Mercury Sable; Premier FWD (\'08-\'09)', startYear: 2005, endYear: 2009 }
+    { description: 'Mercury Montego; Premier FWD (\'05-\'07)', startYear: 2005, endYear: 2007 },
+    { description: 'Mercury Sable; Premier FWD (\'08-\'09)', startYear: 2008, endYear: 2009 }
   ],
   M43: [
-    { description: 'Mercury Montego; Premier AWD (\'05-\'07)/Mercury Sable; Premier AWD (\'08-\'09)', startYear: 2005, endYear: 2009 }
+    { description: 'Mercury Montego; Premier AWD (\'05-\'07)', startYear: 2005, endYear: 2007 },
+    { description: 'Mercury Sable; Premier AWD (\'08-\'09)', startYear: 2008, endYear: 2009 }
   ],
   M50: [
     { description: 'Mercury Sable; GS sedan (\'00-\'05)', startYear: 2000, endYear: 2005 },
@@ -1248,7 +1274,8 @@ const models: Record<string, Model[]> = {
     { description: 'Mercury Sable; LS wagon (\'99)', startYear: 1999, endYear: 1999 }
   ],
   M59: [
-    { description: 'Mercury Sable; LS Premium wagon (\'00-\'04), LS wagon (\'05)', startYear: 2000, endYear: 2005 }
+    { description: 'Mercury Sable; LS Premium wagon (\'00-\'04)', startYear: 2000, endYear: 2004 },
+    { description: 'Mercury Sable; LS wagon (\'05)', startYear: 2005, endYear: 2005 }
   ],
   M60: [
     { description: 'Mercury Cougar; LS (\'87-\'88)', startYear: 1987, endYear: 1988 },
@@ -1286,19 +1313,26 @@ const models: Record<string, Model[]> = {
     { description: 'Mercury Grand Marquis; LS 4-door (\'10-\'11)', startYear: 2010, endYear: 2011 }
   ],
   M81: [
-    { description: 'Lincoln Town Car; Base model (\'87-\'91), Executive Series (\'92-\'04), Signature Series (\'04-\'07)', startYear: 1987, endYear: 2007 }
+    { description: 'Lincoln Town Car; Base model (\'87-\'91)', startYear: 1987, endYear: 1991 },
+    { description: 'Lincoln Town Car; Executive Series (\'92-\'04)', startYear: 1992, endYear: 2004 },
+    { description: 'Lincoln Town Car; Signature Series (\'04-\'07)', startYear: 1984, endYear: 2007 }
   ],
   M82: [
-    { description: 'Lincoln Town Car; Signature Series (\'87-\'03), Signature Limited (\'05-\'09)', startYear: 1987, endYear: 2009 }
+    { description: 'Lincoln Town Car; Signature Series (\'87-\'03)', startYear: 1987, endYear: 2003 },
+    { description: 'Lincoln Town Car; Signature Limited (\'05-\'09)', startYear: 2005, endYear: 2009 }
   ],
   M83: [
-    { description: 'Lincoln Town Car; Cartier Designer Series (\'87-\'03), Ultimate (\'04), Designer Series (\'06-\'07)', startYear: 1987, endYear: 2007 }
+    { description: 'Lincoln Town Car; Cartier Designer Series (\'87-\'03)', startYear: 1987, endYear: 2003 },
+    { description: 'Lincoln Town Car; Ultimate (\'04)', startYear: 2004, endYear: 2004 },
+    { description: 'Lincoln Town Car; Designer Series (\'06-\'07)', startYear: 2006, endYear: 2007 }
   ],
   M84: [
     { description: 'Lincoln Town Car; Executive L (\'01-\'09)', startYear: 2001, endYear: 2009 }
   ],
   M85: [
-    { description: 'Lincoln Town Car; Cartier L (\'01-\'03), Ultimate L (\'04), Signature L (\'05-\'09)', startYear: 2001, endYear: 2009 }
+    { description: 'Lincoln Town Car; Cartier L (\'01-\'03)', startYear: 2001, endYear: 2003 },
+    { description: 'Lincoln Town Car; Ultimate L (\'04)', startYear: 2004, endYear: 2004 },
+    { description: 'Lincoln Town Car; Signature L (\'05-\'09)', startYear: 2005, endYear: 2009 }
   ],
   M86: [
     { description: 'Lincoln LS; V6', startYear: NaN, endYear: NaN } // Add actual start and end years
@@ -1388,7 +1422,8 @@ const models: Record<string, Model[]> = {
     { description: 'Ford Fusion; SEL V6, AWD (\'07-\'09)', startYear: 2007, endYear: 2009 }
   ],
   P04: [
-    { description: 'Ford Escort; 3-door hatchback; Base model (\'84-\'85), L (\'83-\'85)', startYear: 1983, endYear: 1985 }
+    { description: 'Ford Escort; 3-door hatchback; Base model (\'84-\'85)', startYear: 1984, endYear: 1985 },
+    { description: 'Ford Escort; 3-door hatchback; L (\'83-\'85)', startYear: 1983, endYear: 1985 }
   ],
   P05: [
     { description: 'Ford Escort; 3-door hatchback (\'81-\'82)', startYear: 1981, endYear: 1982 },
@@ -1453,10 +1488,12 @@ const models: Record<string, Model[]> = {
     { description: 'Ford Fusion; Energi SE (\'13-\'18)', startYear: 2013, endYear: 2018 }
   ],
   P0R: [
-    { description: 'Ford Fusion; Hybrid Titanium (\'13-\'20); Hybrid Platinum, FWD (\'17-\'18)', startYear: 2013, endYear: 2020 }
+    { description: 'Ford Fusion; Hybrid Titanium (\'13-\'20))', startYear: 2013, endYear: 2020 },
+    { description: 'Ford Fusion; Hybrid Platinum, FWD (\'17-\'18)', startYear: 2017, endYear: 2018 }
   ],
   P0S: [
-    { description: 'Ford Fusion; Energi Titanium (\'13-\'20); Energi Platinum, FWD (\'17-\'18)', startYear: 2013, endYear: 2020 }
+    { description: 'Ford Fusion; Energi Titanium (\'13-\'20)', startYear: 2013, endYear: 2020 },
+    { description: 'Ford Fusion; Energi Platinum, FWD (\'17-\'18)', startYear: 2017, endYear: 2018 }
   ],
   P0T: [
     { description: 'Ford Fusion; SE, AWD (\'13-\'14 Canada only) (\'15-\'20 US & Canada)', startYear: 2013, endYear: 2020 }
@@ -1659,7 +1696,7 @@ const models: Record<string, Model[]> = {
   ],
   P34: [
     { description: 'Ford Escort; wagon; L (\'85 1/2-\'86)', startYear: 1985, endYear: 1986 },
-    { description: 'Ford Focus, 4-door sedan; S (\'08-\'09)', startYear: 2009, endYear: 2009 },
+    { description: 'Ford Focus, 4-door sedan; S (\'08-\'09)', startYear: 2008, endYear: 2009 },
     { description: 'Ford Focus, Sedan; SE (\'00-\'04)', startYear: 2000, endYear: 2004 },
     { description: 'Ford Focus, Sedan; ZX4 S/SE/SES (\'05-\'07)', startYear: 2005, endYear: 2007 },
     { description: 'Ford LTD; Crown Victoria 2-d sedan (\'81-\'82)', startYear: 1981, endYear: 1982 },
@@ -1979,7 +2016,8 @@ const models: Record<string, Model[]> = {
     { description: 'Mercury Zephyr; wagon; (\'81)', startYear: 1981, endYear: 1981 }
   ],
   P74: [
-    { description: 'Ford Crown Victoria; LX (\'92-\'09) & LX Sport (\'02-\'06)', startYear: 1992, endYear: 2009 },
+    { description: 'Ford Crown Victoria; LX (\'92-\'09)', startYear: 1992, endYear: 2009 },
+    { description: 'Ford Crown Victoria; LX Sport (\'02-\'06)', startYear: 2002, endYear: 2006 },
     { description: 'Ford LTD Crown Victoria; LX 4-d sedan (\'87-\'91)', startYear: 1987, endYear: 1991 }
   ],
   P75: [
@@ -2059,7 +2097,8 @@ const models: Record<string, Model[]> = {
     { description: 'Ford Mustang, Coupe; V6 (\'15-\'17)', startYear: 2015, endYear: 2017 }
   ],
   P8C: [
-    { description: 'Ford Mustang, Coupe; GT (\'10-\'14), Boss 302 (\'11-\'12)', startYear: 2010, endYear: 2014 },
+    { description: 'Ford Mustang, Coupe; GT (\'10-\'14)', startYear: 2010, endYear: 2014 },
+    { description: 'Ford Mustang, Coupe; Boss 302 (\'11-\'12)', startYear: 2011, endYear: 2012 },
     { description: 'Ford Mustang, Coupe; GT (\'15-\'23)', startYear: 2015, endYear: 2023 },
     { description: 'Ford Mustang, Coupe; GT (\'24)', startYear: 2024, endYear: 2024 }
   ],
@@ -2166,7 +2205,8 @@ const models: Record<string, Model[]> = {
     { description: 'Ford Ranger EV Regular Cab 4x2 (\'99-\'01)', startYear: 1999, endYear: 2001 }
   ],
   R10: [
-    { description: 'Ford Ranger Regular Cab 4x2 (\'83-\'09), Ranger EV (\'98)', startYear: 1983, endYear: 2009 }
+    { description: 'Ford Ranger Regular Cab 4x2 (\'83-\'09)', startYear: 1983, endYear: 2009 },
+    { description: 'Ford Ranger EV (\'98)', startYear: 1998, endYear: 1998 }
   ],
   R11: [
     { description: 'Ford Ranger Regular Cab 4x4 (\'83-\'08)', startYear: 1983, endYear: 2008 }
@@ -2571,13 +2611,18 @@ const models: Record<string, Model[]> = {
     { description: 'Merkur Scorpio (\'88-\'89)', startYear: 1988, endYear: 1989 }
   ],
   T82: [
-    { description: 'Ford Mustang, Coupe; GT (\'05-\'09), Shelby GT-H (\'06), Shelby GT (\'07-\'08), Bullitt (\'08-\'09)', startYear: 2005, endYear: 2009 }
+    { description: 'Ford Mustang, Coupe; GT (\'05-\'09)', startYear: 2005, endYear: 2009 },
+    { description: 'Ford Mustang, Coupe; Shelby GT-H (\'06)', startYear: 2006, endYear: 2006 },
+    { description: 'Ford Mustang, Coupe; Shelby GT (\'07-\'08)', startYear: 2007, endYear: 2008 },
+    { description: 'Ford Mustang, Coupe; Bullitt (\'08-\'09)', startYear: 2008, endYear: 2009 }
   ],
   T84: [
     { description: 'Ford Mustang, Convertible; V6 (\'05-\'09)', startYear: 2005, endYear: 2009 }
   ],
   T85: [
-    { description: 'Ford Mustang, Convertible; GT (\'05-\'09), Shelby GT-H (\'07), Shelby GT (\'08)', startYear: 2005, endYear: 2009 }
+    { description: 'Ford Mustang, Convertible; GT (\'05-\'09)', startYear: 2005, endYear: 2009 },
+    { description: 'Ford Mustang, Convertible; Shelby GT-H (\'07)', startYear: 2007, endYear: 2007 },
+    { description: 'Ford Mustang, Convertible; Shelby GT (\'08)', startYear: 2008, endYear: 2008 }
   ],
   T88: [
     { description: 'Ford Mustang, Coupe; Shelby GT500 (\'07-\'09)', startYear: 2007, endYear: 2009 }
@@ -2613,7 +2658,8 @@ const models: Record<string, Model[]> = {
     { description: 'Mazda Tribute LX 4x2 (\'01-\'02)', startYear: 2001, endYear: 2002 }
   ],
   U0B: [
-    { description: 'Ford Escape SE Sport Hybrid 4x2 (\'20), SE Hybrid 4x2 (\'21-\'22)', startYear: 2021, endYear: 2022 }
+    { description: 'Ford Escape SE Hybrid 4x2 (\'21-\'22)', startYear: 2021, endYear: 2022 },
+    { description: 'Ford Escape SE Sport Hybrid 4x2 (\'20)', startYear: 2020, endYear: 2022 }
   ],
   U0C: [
     { description: 'Ford Escape SEL Hybrid 4x2 (\'21-\'22)', startYear: 2021, endYear: 2022 },
@@ -2671,7 +2717,8 @@ const models: Record<string, Model[]> = {
     { description: 'Ford Expedition; 4x2, XLT (\'00-\'09)', startYear: 2000, endYear: 2009 }
   ],
   U16: [
-    { description: 'Ford Expedition; 4x4, XLT (\'00-\'09), NBX (\'04-\'05)', startYear: 2000, endYear: 2009 }
+    { description: 'Ford Expedition; 4x4, XLT (\'00-\'09)', startYear: 2000, endYear: 2009 },
+    { description: 'Ford Expedition; 4x4, XLT NBX (\'04-\'05)', startYear: 2004, endYear: 2005 }
   ],
   U17: [
     { description: 'Ford Expedition; 4x2, All models (\'97-\'99)', startYear: 1997, endYear: 1999 },
@@ -2780,7 +2827,8 @@ const models: Record<string, Model[]> = {
     { description: 'Mercury Mountaineer Convenience 4x2 (\'06)', startYear: 2006, endYear: 2006 }
   ],
   U37: [
-    { description: 'Mercury Mountaineer Luxury 4x2 (\'06), Base model 4x2 (\'07-\'09)', startYear: 2006, endYear: 2009 }
+    { description: 'Mercury Mountaineer Luxury 4x2 (\'06)', startYear: 2006, endYear: 2006 },
+    { description: 'Mercury Mountaineer Base model 4x2 (\'07-\'09)', startYear: 2007, endYear: 2009 }
   ],
   U38: [
     { description: 'Mercury Mountaineer Premier 4x2 (\'06-\'09)', startYear: 2006, endYear: 2009 }
@@ -2795,10 +2843,12 @@ const models: Record<string, Model[]> = {
     { description: 'Ford Explorer Sport Trac; Limited 4x2 (\'10)', startYear: 2010, endYear: 2010 }
   ],
   U40: [
-    { description: 'Ford Excursion XLT 4x2 (\'00-\'05), XLS 4x2 (\'04-\'05)', startYear: 2000, endYear: 2005 }
+    { description: 'Ford Excursion XLT 4x2 (\'00-\'05)', startYear: 2000, endYear: 2005 },
+    { description: 'Ford Excursion XLS 4x2 (\'04-\'05)', startYear: 2004, endYear: 2005 }
   ],
   U41: [
-    { description: 'Ford Excursion XLT 4x4 (\'00-\'05), XLS 4x4 (\'04-\'05)', startYear: 2000, endYear: 2005 }
+    { description: 'Ford Excursion XLT 4x4 (\'00-\'05)', startYear: 2000, endYear: 2005 },
+    { description: 'Ford Excursion XLS 4x4 (\'04-\'05)', startYear: 2004, endYear: 2005 }
   ],
   U42: [
     { description: 'Ford Excursion Limited 4x2 (\'00-\'05)', startYear: 2000, endYear: 2005 },
@@ -2818,7 +2868,7 @@ const models: Record<string, Model[]> = {
     { description: 'Mercury Mountaineer Convenience AWD (\'06)', startYear: 2006, endYear: 2006 }
   ],
   U47: [
-    { description: 'Mercury Mountaineer Luxury AWD, Base model AWD (\'07-\'09) (\'06)', startYear: 2007, endYear: 2009 },
+    { description: 'Mercury Mountaineer Luxury AWD, Base model AWD (\'07-\'09)', startYear: 2007, endYear: 2009 },
     { description: 'Mercury Mountaineer Luxury AWD, Base model AWD (\'06)', startYear: 2006, endYear: 2006 }
   ],
   U48: [
@@ -2875,12 +2925,15 @@ const models: Record<string, Model[]> = {
   ],
   U62: [
     { description: 'Ford Explorer; XLS 4-door; 4x2 (\'00-\'01)', startYear: 2000, endYear: 2001 },
-    { description: 'Ford Explorer; XLS 4x2 (\'02-\'05), XLS Sport 4x2 (\'03-\'05)', startYear: 2002, endYear: 2005 },
+    { description: 'Ford Explorer; XLS 4x2 (\'02-\'05)', startYear: 2002, endYear: 2005 },
+    { description: 'Ford Explorer; XLS Sport 4x2 (\'03-\'05)', startYear: 2003, endYear: 2005 },
     { description: 'Ford Explorer; XLS 4x2 (\'06)', startYear: 2006, endYear: 2006 }
   ],
   U63: [
     { description: 'Ford Explorer; XLT 4-door; 4x2 (\'00-\'01)', startYear: 2000, endYear: 2001 },
-    { description: 'Ford Explorer; XLT 4x2 (\'02-\'05), XLT Sport 4x2 (\'03-\'05), NBX 4x2 (\'03)', startYear: 2002, endYear: 2005 },
+    { description: 'Ford Explorer; XLT 4x2 (\'02-\'05)', startYear: 2002, endYear: 2005 },
+    { description: 'Ford Explorer; XLT Sport 4x2 (\'03-\'05)', startYear: 2003, endYear: 2005 },
+    { description: 'Ford Explorer; NBX 4x2 (\'03)', startYear: 2003, endYear: 2003 },
     { description: 'Ford Explorer; XLT 4x2 (\'06-\'09)', startYear: 2006, endYear: 2009 }
   ],
   U64: [
@@ -2927,12 +2980,15 @@ const models: Record<string, Model[]> = {
   ],
   U72: [
     { description: 'Ford Explorer; XLS 4-door; 4x4 (\'00-\'01)', startYear: 2000, endYear: 2001 },
-    { description: 'Ford Explorer; XLS 4x4 (\'02-\'05), XLS Sport 4x4 (\'03-\'05)', startYear: 2002, endYear: 2005 },
+    { description: 'Ford Explorer; XLS 4x4 (\'02-\'05)', startYear: 2002, endYear: 2005 },
+    { description: 'Ford Explorer; XLS Sport 4x4 (\'03-\'05)', startYear: 2003, endYear: 2005 },
     { description: 'Ford Explorer; XLS 4x4 (\'06)', startYear: 2006, endYear: 2006 }
   ],
   U73: [
     { description: 'Ford Explorer; XLT 4-door; 4x4 (\'00-\'01)', startYear: 2000, endYear: 2001 },
-    { description: 'Ford Explorer; XLT 4x4 (\'02-\'05), XLT Sport 4x4 (\'03-\'05), NBX 4x4 (\'03-\'04)', startYear: 2002, endYear: 2005 },
+    { description: 'Ford Explorer; XLT 4x4 (\'02-\'05)', startYear: 2002, endYear: 2005 },
+    { description: 'Ford Explorer; XLT Sport 4x4 (\'03-\'05)', startYear: 2003, endYear: 2005 },
+    { description: 'Ford Explorer; NBX 4x4 (\'03-\'04)', startYear: 2003, endYear: 2004 },
     { description: 'Ford Explorer; XLT 4x4 (\'06-\'09)', startYear: 2006, endYear: 2009 }
   ],
   U74: [
@@ -2971,11 +3027,13 @@ const models: Record<string, Model[]> = {
     { description: 'Mercury Mariner Luxury 4x2 (\'07)', startYear: 2007, endYear: 2007 }
   ],
   U82: [
-    { description: 'Ford Explorer; XLS AWD (\'03-\'04), XLS Sport AWD (\'03-\'04)', startYear: 2003, endYear: 2004 }
+    { description: 'Ford Explorer; XLS AWD (\'03-\'04)', startYear: 2003, endYear: 2004 },
+    { description: 'Ford Explorer; XLS Sport AWD (\'03-\'04)', startYear: 2003, endYear: 2004 }
   ],
   U83: [
     { description: 'Ford Explorer; XLT 4-door; AWD (\'00-\'01)', startYear: 2000, endYear: 2001 },
-    { description: 'Ford Explorer; XLT AWD (\'03-\'04), XLT Sport AWD (\'03-\'04)', startYear: 2003, endYear: 2004 },
+    { description: 'Ford Explorer; XLT AWD (\'03-\'04)', startYear: 2003, endYear: 2004 },
+    { description: 'Ford Explorer; XLT Sport AWD (\'03-\'04)', startYear: 2003, endYear: 2004 },
     { description: 'Ford Explorer; XLT AWD (\'09)', startYear: 2009, endYear: 2009 }
   ],
   U84: [
@@ -3623,7 +3681,8 @@ const models: Record<string, Model[]> = {
     { description: 'Mazda 6; Sport (\'10-\'13)', startYear: 2010, endYear: 2013 }
   ],
   Z8C: [
-    { description: 'Mazda 6; Touring, Touring Plus, Grand Touring (\'10-\'11), Grand Touring (\'12-\'13)', startYear: 2010, endYear: 2013 }
+    { description: 'Mazda 6; Touring, Touring Plus, Grand Touring (\'10-\'11)', startYear: 2010, endYear: 20113 },
+    { description: 'Mazda 6; Touring, Touring Plus, Grand Touring (\'12-\'13)', startYear: 2012, endYear: 2013 }
   ],
   Z8D: [
     { description: 'Mazda 6; Touring (\'12-\'13)', startYear: 2012, endYear: 2013 }
