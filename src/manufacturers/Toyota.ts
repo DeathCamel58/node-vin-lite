@@ -423,14 +423,16 @@ function decodeVin (vin: string): ToyotaSpecific | null {
       engines = engineAfter1996[engineCharacter]
     }
   }
-  for (const item of engines) {
-    if (engine === 'Unknown') {
-      engine = ''
-    } else {
-      engine += '; '
-    }
+  if (engines !== undefined) {
+    for (const item of engines) {
+      if (engine === 'Unknown') {
+        engine = ''
+      } else {
+        engine += '; '
+      }
 
-    engine += item
+      engine += item
+    }
   }
 
   let restraint = 'Unknown'
