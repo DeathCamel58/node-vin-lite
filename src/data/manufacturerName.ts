@@ -931,6 +931,10 @@ const wmiDictionary: WmiDictionary = {
   SFZ: 'Tesla Motors (Roadsters fully assembed in UK)',
   XP7: 'Tesla, Berlin',
 
+  // Rivian
+  '7PD': 'Rivian',
+  '7FC': 'Rivian',
+
   // Others
   MHA: 'PT. Central Sole Agency (Volvo)',
   935: 'Citroën Brazil',

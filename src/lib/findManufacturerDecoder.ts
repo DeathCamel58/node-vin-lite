@@ -2,6 +2,7 @@
 import * as BugattiDecoder from '../manufacturers/Bugatti'
 import * as FordDecoder from '../manufacturers/Ford'
 import * as FerrariDecoder from '../manufacturers/Ferrari'
+import * as RivianDecoder from '../manufacturers/Rivian'
 import * as TeslaDecoder from '../manufacturers/Tesla'
 import * as ToyotaDecoder from '../manufacturers/Toyota'
 import * as VolkswagenDecoder from '../manufacturers/Volkswagen'
@@ -18,6 +19,7 @@ const manufacturers: Record<string, any> = {
   bugattiDecoder: BugattiDecoder,
   fordDecoder: FordDecoder,
   ferrariDecoder: FerrariDecoder,
+  rivianDecoder: RivianDecoder,
   teslaDecoder: TeslaDecoder,
   toyotaDecoder: ToyotaDecoder,
   volkswagenDecoder: VolkswagenDecoder,
