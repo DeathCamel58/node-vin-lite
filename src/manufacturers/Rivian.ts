@@ -4,8 +4,8 @@ import type Model from '../common/Model'
 const supportedWmis: string[] = ['7FC', '7PD']
 
 const models: Record<string, Model[]> = {
-  T: [{ description: 'R1T 4-door Pickup Truck', startYear: 2022, endYear: Infinity }],
-  S: [{ description: 'R1S 4-door MPV', startYear: 2022, endYear: Infinity }]
+  S: [{ description: 'R1S 4-door MPV', startYear: 2022, endYear: Infinity }],
+  T: [{ description: 'R1T 4-door Pickup Truck', startYear: 2022, endYear: Infinity }]
 }
 
 const gvwrBrakeSystems = {
